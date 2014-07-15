@@ -50,16 +50,6 @@ namespace Tracker
 
             this.Text = "Yellowbrick Data Reader " + Application.ProductVersion.ToString();
 
-            this.setEnvironment();
-        }
-        #endregion
-
-        #region private methods
-        /// <summary>
-        /// 
-        /// </summary>
-        void setEnvironment()
-        {
             this.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             this.WorkingDirectory += "\\tracker-yellowbrick\\" + Tracker.Properties.Settings.Default.RaceKey;
             DirectoryInfo info = new DirectoryInfo(this.WorkingDirectory);
@@ -72,9 +62,10 @@ namespace Tracker
             this.SavingWorker.DoWork += new DoWorkEventHandler(SavingWorker_DoWork);
             this.analytics1.MyBoatChangedEvent += new Analytics.MyBoatSelectionChanged(analytics1_MyBoatChangedEvent);
             this.chartPositions1.MySelectionChangedEvent += new ChartPositions.MyBoatSelectionChanged(chartPositions1_MySelectionChangedEvent);
+            this.emailPasting1.ChangeEventHandlerEvent += new EmailPasting.ChangedEventHandler(emailPasting1_ChangeEventHandlerEvent);
 
             int result = Presenter.LoadData(this.WorkingDirectory, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tracker-yellowbrick\\");
-            
+
             if (result == -1)
                 this.UpdaterWorker.RunWorkerAsync(true);
             else if (result == 0)
@@ -82,23 +73,14 @@ namespace Tracker
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
                 this.SetStatusThreadSafe("Ready");
-                this.UpdaterWorker.RunWorkerAsync(false);
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        void chartPositions1_MySelectionChangedEvent()
-        {
-            this.analytics1.UpdateDisplay();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        void analytics1_MyBoatChangedEvent()
-        {
-            this.chartPositions1.UpdateDisplay();
-        }
+
+
+        #endregion
+
+        #region async workers
+        
         /// <summary>
         /// 
         /// </summary>
@@ -162,6 +144,28 @@ namespace Tracker
         #endregion
 
         #region event methods
+        /// <summary>
+        /// 
+        /// </summary>
+        void chartPositions1_MySelectionChangedEvent()
+        {
+            this.analytics1.UpdateDisplay();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        void analytics1_MyBoatChangedEvent()
+        {
+            this.chartPositions1.UpdateDisplay();
+        }
+
+        void  emailPasting1_ChangeEventHandlerEvent()
+        {
+            this.chartPositions1.UpdateDisplay();
+            this.analytics1.UpdateDisplay();
+            this.SavingWorker.RunWorkerAsync();
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -262,5 +266,52 @@ namespace Tracker
         }
         #endregion
 
+        private void updateRaceInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(0 == Presenter.updateRace(Tracker.Properties.Settings.Default.ServerName
+                ,Tracker.Properties.Settings.Default.RaceKey))
+            {
+                this.chartPositions1.UpdateDisplay();
+                this.analytics1.UpdateDisplay();
+                this.SavingWorker.RunWorkerAsync();
+                MessageBox.Show("Race Updated!");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong when updating the race");
+            }
+        }
+
+        private void getAllPositionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (0 == Presenter.updateAllPositions(Tracker.Properties.Settings.Default.ServerName,
+                Tracker.Properties.Settings.Default.RaceKey))
+            {
+                this.chartPositions1.UpdateDisplay();
+                this.analytics1.UpdateDisplay();
+                this.SavingWorker.RunWorkerAsync();
+                MessageBox.Show("All Positions Updated!");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong when updating All Positions");
+            }
+        }
+
+        private void getLatestPositionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (0 == Presenter.updateLatestPositions(Tracker.Properties.Settings.Default.ServerName,
+                Tracker.Properties.Settings.Default.RaceKey))
+            {
+                this.chartPositions1.UpdateDisplay();
+                this.analytics1.UpdateDisplay();
+                this.SavingWorker.RunWorkerAsync();
+                MessageBox.Show(" Latest Positions Updated!");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong when updating Latest Positions");
+            }
+        }
     }
 }

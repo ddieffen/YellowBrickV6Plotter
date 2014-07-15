@@ -118,5 +118,17 @@ namespace Tracker.Properties {
                 this["RaceKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public string MySection {
+            get {
+                return ((string)(this["MySection"]));
+            }
+            set {
+                this["MySection"] = value;
+            }
+        }
     }
 }

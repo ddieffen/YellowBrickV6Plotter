@@ -9,21 +9,21 @@ using System.IO;
 
 namespace Tracker.Data
 {
-    internal class RaceData : Race
+    internal static class RaceExtensions
     {
 
-        internal bool AppendConfigurationNode(XmlNode containerNode)
+        internal static bool AppendRaceXmlNode(this Race race, XmlNode containerNode)
         {
             bool success = true;
             try
             {
-                XmlNode configNode = containerNode.SelectSingleNode("Race");
+                XmlNode configNode = containerNode.SelectSingleNode("race");
                 if (configNode == null)
                 {
-                    configNode = containerNode.OwnerDocument.CreateNode(XmlNodeType.Element, "Race", containerNode.OwnerDocument.NamespaceURI);
+                    configNode = containerNode.OwnerDocument.CreateNode(XmlNodeType.Element, "race", containerNode.OwnerDocument.NamespaceURI);
                     containerNode.AppendChild(configNode);
                 }
-                configNode.InnerXml = this.SerializeToXmlString();
+                configNode.InnerXml = race.SerializeToXmlString();
             }
             catch
             {
@@ -33,7 +33,7 @@ namespace Tracker.Data
             return success;
         }
 
-        internal string SerializeToXmlString()
+        internal static string SerializeToXmlString(this Race race)
         {
             XmlSerializer mySerializer = null;
             StringWriter xout = new StringWriter();
@@ -45,8 +45,8 @@ namespace Tracker.Data
                 };
                 using (var writer = XmlWriter.Create(xout, settings))
                 {
-                    var xmlSerializer = new XmlSerializer(this.GetType());
-                    xmlSerializer.Serialize(writer, this);
+                    var xmlSerializer = new XmlSerializer(race.GetType());
+                    xmlSerializer.Serialize(writer, race);
                 }
                 return xout.ToString();
             }
@@ -63,9 +63,9 @@ namespace Tracker.Data
             }
         }
 
-        internal static RaceData DeserializeConfigurationNode(XmlNode pluginNode)
+        internal static Race DeserializeRaceXmlNode(XmlNode pluginNode)
         {
-            RaceData returned = null;
+            Race returned = null;
 
             MemoryStream stm = null;
             XmlSerializer mySerializer = null;
@@ -73,14 +73,14 @@ namespace Tracker.Data
             {
                 stm = new MemoryStream();
                 StreamWriter stw = new StreamWriter(stm);
-                stw.Write(pluginNode.SelectSingleNode("Configuration").InnerXml);
+                stw.Write(pluginNode.SelectSingleNode("race").InnerXml);
                 stw.Flush();
                 stm.Position = 0;
                 // Construct an instance of the XmlSerializer with the type
                 // of object that is being deserialized.
-                mySerializer = new XmlSerializer(typeof(RaceData));
+                mySerializer = new XmlSerializer(typeof(Race));
                 // Call the Deserialize method and cast to the object type.
-                returned = (RaceData)mySerializer.Deserialize(stm);
+                returned = (Race)mySerializer.Deserialize(stm);
             }
             catch (Exception e)
             {

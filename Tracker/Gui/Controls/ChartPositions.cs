@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Tracker.Data;
 using ZedGraph;
 using YellowbrickV6.Entities;
+using YellowbrickV6;
 
 namespace Tracker.Gui.Controls
 {
@@ -135,7 +136,7 @@ namespace Tracker.Gui.Controls
         {
             List<int> teamsToPlot = new List<int>();
             foreach (object obj in this.checkedListBox2.CheckedItems)
-                teamsToPlot.Add((obj as TeamData).id);
+                teamsToPlot.Add((obj as Team).id);
             this.UpdateChart(teamsToPlot);
 
             this.CenterOnMyBoat();
@@ -148,7 +149,7 @@ namespace Tracker.Gui.Controls
             {
                 if (Holder.race.teams.Any(t => t.id == Tracker.Properties.Settings.Default.MyTeam))
                 {
-                    Moment pos = (Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam) as TeamData).LatestMoment;
+                    Moment pos = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
                     this.CenterOnPosition(pos.lat, pos.lon);
                 }
             }
@@ -180,10 +181,6 @@ namespace Tracker.Gui.Controls
             this.zedGraphControl1.Refresh();
         }
 
-       
-
-      
-
         #endregion
         
         #region subInit
@@ -195,7 +192,7 @@ namespace Tracker.Gui.Controls
                 this.checkedListBox2.ItemCheck -= new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
 
                 this.checkedListBox2.Items.Clear();
-                foreach (TeamData td in Holder.race.teams.OrderBy(item => item.name))
+                foreach (Team td in Holder.race.teams.OrderBy(item => item.name))
                 {
                     if (checkedSections != null && checkedSections.Count > 0)
                     {
@@ -228,17 +225,25 @@ namespace Tracker.Gui.Controls
                     PointPairList ppl = new PointPairList();
                     if (Holder.race.teams.Any(t => t.id == teamID))
                     {
-                        TeamData team = Holder.race.teams.Single(t => t.id == teamID) as TeamData;
+                        Team team = Holder.race.teams.Single(t => t.id == teamID) as Team;
 
                         if (Tracker.Properties.Settings.Default.ShowTeamTrace)
                         {
-                                foreach (Moment tp in team.moments.OrderBy(item => item.at))
-                                    ppl.Add(tp.lon, tp.lat, 0, team.name + "\r\n");
+                            foreach (Moment tp in team.moments.OrderBy(item => item.at))
+                                ppl.Add(tp.lon, tp.lat, 
+                                "TEAM: " + team.name + "\r\n" +
+                                "SPD: " + tp.spd.ToString("F1") + " kn\r\n" +
+                                "HDG: " + tp.heading.ToString("F0") + "\r\n" +
+                                "DTF: " + UnitTools.M2Nm(tp.dtf).ToString("F1") + " nm");
                         }
                         else
                         {
-                            Moment latestPos = team.LatestMoment;
-                            ppl.Add(latestPos.lon, latestPos.lat, 0, team.name + "\r\n");
+                            Moment latestPos = team.LatestMoment();
+                            ppl.Add(latestPos.lon, latestPos.lat,
+                                "TEAM: " + team.name + "\r\n" +
+                                "SPD: " + latestPos.spd.ToString("F1") + " kn\r\n" +
+                                "HDG: " + latestPos.heading.ToString("F0") + "\r\n" + 
+                                "DTF: " + UnitTools.M2Nm(latestPos.dtf).ToString("F1") + " nm");
                         }
 
                         LineItem myCurve = myPane.AddCurve(team.name, ppl, Tools.InvertMeAColour(ColorTranslator.FromHtml("#" + team.colour)), SymbolType.Circle);
@@ -256,7 +261,7 @@ namespace Tracker.Gui.Controls
 
                 foreach (Node pois in Holder.race.course.nodes)
                 {
-                    ppl.Add(pois.lat, pois.lat, 0, pois.name);
+                    ppl.Add(pois.lon, pois.lat, 0, pois.name);
                 }
                 LineItem myCurve = myPane.AddCurve("Points of Interrest", ppl, Color.Black, SymbolType.Square);
                 myCurve.Symbol.IsVisible = true;
@@ -282,9 +287,6 @@ namespace Tracker.Gui.Controls
                 }
             }
         }
-
-
-
 
         public void traceCourse(GraphPane myPane)
         {
@@ -334,12 +336,12 @@ namespace Tracker.Gui.Controls
             List<int> checkedTeams = new List<int>();
             foreach (object obj in this.checkedListBox2.CheckedItems)
             {
-                checkedTeams.Add((obj as TeamData).id);
+                checkedTeams.Add((obj as Team).id);
             }
             if (e.CurrentValue == CheckState.Unchecked)
-                checkedTeams.Add((this.checkedListBox2.Items[e.Index] as TeamData).id);
+                checkedTeams.Add((this.checkedListBox2.Items[e.Index] as Team).id);
             else
-                checkedTeams.Remove((this.checkedListBox2.Items[e.Index] as TeamData).id);
+                checkedTeams.Remove((this.checkedListBox2.Items[e.Index] as Team).id);
 
             string checkedSectionsText = "";
             foreach (int id in checkedTeams)
@@ -358,7 +360,7 @@ namespace Tracker.Gui.Controls
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.teamInfo1.SetTeam((this.checkedListBox2.SelectedItem as TeamData));
+            this.teamInfo1.SetTeam((this.checkedListBox2.SelectedItem as Team));
         }
         #endregion eventMethods
 

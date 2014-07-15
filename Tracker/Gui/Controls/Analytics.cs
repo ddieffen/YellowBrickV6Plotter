@@ -30,7 +30,7 @@ namespace Tracker.Gui.Controls
         {
             if(Holder.race != null && Holder.race.teams != null)
             {
-                foreach (TeamData td in Holder.race.teams.OrderBy(item => item.name))
+                foreach (Team td in Holder.race.teams.OrderBy(item => item.name))
                 {
                     this.comboBox1.Items.Add(td);
                 }
@@ -59,10 +59,10 @@ namespace Tracker.Gui.Controls
             int positionCount = 1;
             if(Holder.race != null && Holder.race.teams != null)
             {
-                IEnumerable<TeamData> teams = (from t in Holder.race.teams
-                                           where t as TeamData != null && checkedTeams.Contains(t.id)
-                                           select t as TeamData).ToList();
-                foreach (TeamData td in teams.OrderBy(item => item.LatestMoment.dtf))
+                IEnumerable<Team> teams = (from t in Holder.race.teams
+                                           where t as Team != null && checkedTeams.Contains(t.id)
+                                           select t as Team).ToList();
+                foreach (Team td in teams.OrderBy(item => item.LatestMoment().dtf))
                 {
                     scores.Add(new ScoringItem(positionCount, td.id));
                     positionCount++;
@@ -73,7 +73,7 @@ namespace Tracker.Gui.Controls
 
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Tracker.Properties.Settings.Default.MyTeam = (this.comboBox1.SelectedItem as TeamData).id;
+            Tracker.Properties.Settings.Default.MyTeam = (this.comboBox1.SelectedItem as Team).id;
             this.UpdateDisplay();
             if (this.MyBoatChangedEvent != null)
                 this.MyBoatChangedEvent();
@@ -113,7 +113,7 @@ namespace Tracker.Gui.Controls
 
         public String DistanceToGo
         {
-            get { return (Holder.race.teams.Single(t => t.id == this.teamId) as TeamData).LatestMoment.dtf.ToString("F2"); }
+            get { return Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment().dtf.ToString("F2"); }
         }
 
         public String ToGoDifference
@@ -122,8 +122,8 @@ namespace Tracker.Gui.Controls
             {
                 if (Holder.race.teams.Any(t => t.id == Tracker.Properties.Settings.Default.MyTeam))
                 {
-                    Moment mine = (Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam) as TeamData).LatestMoment;
-                    Moment theirs = (Holder.race.teams.Single(t => t.id == this.teamId) as TeamData).LatestMoment;
+                    Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
+                    Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
                     return (mine.dtf - theirs.dtf).ToString("F2");
                 }
@@ -137,8 +137,8 @@ namespace Tracker.Gui.Controls
             {
                 if (Holder.race.teams.Any(t => t.id == Tracker.Properties.Settings.Default.MyTeam))
                 {
-                    Moment mine = (Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam) as TeamData).LatestMoment;
-                    Moment theirs = (Holder.race.teams.Single(t => t.id == this.teamId) as TeamData).LatestMoment;
+                    Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
+                    Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
                     return YellowbrickV6.CoordinateTools.HaversineDistanceNauticalMiles(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F2");
                 }
@@ -152,8 +152,8 @@ namespace Tracker.Gui.Controls
             {
                 if (Holder.race.teams.Any(t => t.id == Tracker.Properties.Settings.Default.MyTeam))
                 {
-                    Moment mine = (Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam) as TeamData).LatestMoment;
-                    Moment theirs = (Holder.race.teams.Single(t => t.id == this.teamId) as TeamData).LatestMoment;
+                    Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
+                    Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
                     return YellowbrickV6.CoordinateTools.HaversineHeadingDegrees(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F0");
                 }

@@ -90,7 +90,7 @@ namespace Tracker
             #endregion
          
             if(Holder.race != null)
-                (Holder.race as RaceData).AppendConfigurationNode(rootNode);
+                Holder.race.AppendRaceXmlNode(rootNode);
 
             xmlDoc.Save(filename);
         }
@@ -106,8 +106,8 @@ namespace Tracker
                 Holder.teamsSelected = xmlDoc.SelectSingleNode("root/teamChecked").Attributes["ids"].Value;
                 #endregion
 
-                if (xmlDoc.SelectSingleNode("root/race") != null)
-                    Holder.race = RaceData.DeserializeConfigurationNode(xmlDoc.SelectSingleNode("root/race"));
+                if (xmlDoc.SelectSingleNode("root") != null)
+                    Holder.race = RaceExtensions.DeserializeRaceXmlNode(xmlDoc.SelectSingleNode("root"));
 
                 Holder.dataIsBeeingUpdated = false;
             }
@@ -125,46 +125,52 @@ namespace Tracker
         {
             if (UpdatingEvent != null)
                 UpdatingEvent("Updating Race...");
-
-            Race race = YBTracker.getRaceInformation(serverName, raceKey);
-
-            if (race != null)
+            try
             {
-                if (Holder.race == null)
+                Race race = YBTracker.getRaceInformation(serverName, raceKey);
+
+                if (race != null)
                 {
-                    Holder.race = race;
+                    if (Holder.race == null)
+                    {
+                        Holder.race = race;
+                        return 0;
+                    }
+                    Holder.race.title = race.title;
+
+                    if (Holder.race.tags == null)
+                        Holder.race.tags = new List<Tag>();
+                    foreach (Tag tag in race.tags)
+                    {
+                        if (!Holder.race.tags.Any(t => t.id == tag.id))
+                            Holder.race.tags.Add(tag);
+                    }
+
+                    if (Holder.race.teams == null)
+                        Holder.race.teams = new List<Team>();
+                    foreach (Team team in race.teams)
+                    {
+                        if (!Holder.race.teams.Any(t => t.id == team.id))
+                            Holder.race.teams.Add(team);
+                    }
+
+                    if (Holder.race.course == null)
+                        Holder.race.course = new Course();
+
+                    Holder.race.course.nodes.Clear();
+                    foreach (Node node in race.course.nodes)
+                        Holder.race.course.nodes.Add(node);
+
                     return 0;
                 }
-                Holder.race.title = race.title;
-
-                if(Holder.race.tags == null)
-                    Holder.race.tags = new List<Tag>();
-                foreach (Tag tag in race.tags)
+                else
                 {
-                    if (!Holder.race.tags.Any(t => t.id == tag.id))
-                        Holder.race.tags.Add(tag);
+                    messages.Add(DateTime.Now, "Failed to update the race");
+                    return -1;
                 }
-
-                if (Holder.race.teams == null)
-                    Holder.race.teams = new List<Team>();
-                foreach (Team team in race.teams)
-                {
-                    if (!Holder.race.teams.Any(t => t.id == team.id))
-                        Holder.race.teams.Add(team);
-                }
-
-                if (Holder.race.course == null)
-                    Holder.race.course = new Course();
-
-                Holder.race.course.nodes.Clear();
-                foreach (Node node in race.course.nodes)
-                    Holder.race.course.nodes.Add(node);
-                
-                return 0;
             }
-            else
+            catch
             {
-                messages.Add(DateTime.Now, "Failed to update the race");
                 return -1;
             }
         }
@@ -173,19 +179,25 @@ namespace Tracker
         {
             if (UpdatingEvent != null)
                 UpdatingEvent("Updating Latest Positions...");
-
-            List<Team> teams = YBTracker.getNewPositions(serverName, raceKey);
-
-            if (Holder.race != null && Holder.race.teams != null)
+            try
             {
-                YBTracker.UpdateTeamsMoments(Holder.race.teams, teams);
-                foreach (Team team in Holder.race.teams)
-                    YBTracker.UpdateMomentsSpeedHeading(team);
-                return 0;
+                List<Team> teams = YBTracker.getNewPositions(serverName, raceKey);
+
+                if (Holder.race != null && Holder.race.teams != null)
+                {
+                    YBTracker.UpdateTeamsMoments(Holder.race.teams, teams);
+                    foreach (Team team in Holder.race.teams)
+                        YBTracker.UpdateMomentsSpeedHeading(team);
+                    return 0;
+                }
+                else
+                {
+                    messages.Add(DateTime.Now, "Failed to update LatestPositions");
+                    return -1;
+                }
             }
-            else
+            catch 
             {
-                messages.Add(DateTime.Now, "Failed to update LatestPositions");
                 return -1;
             }
         }
@@ -194,19 +206,25 @@ namespace Tracker
         {
             if (UpdatingEvent != null)
                 UpdatingEvent("Updating All Positions...");
-
-            List<Team> teams = YBTracker.getAllPositions(serverName, raceKey);
-
-            if (Holder.race.teams != null && Holder.race != null)
+            try
             {
-                YBTracker.UpdateTeamsMoments(Holder.race.teams, teams);
-                foreach (Team team in Holder.race.teams)
-                    YBTracker.UpdateMomentsSpeedHeading(team);
-                return 0;
+                List<Team> teams = YBTracker.getAllPositions(serverName, raceKey);
+
+                if (Holder.race.teams != null && Holder.race != null)
+                {
+                    YBTracker.UpdateTeamsMoments(Holder.race.teams, teams);
+                    foreach (Team team in Holder.race.teams)
+                        YBTracker.UpdateMomentsSpeedHeading(team);
+                    return 0;
+                }
+                else
+                {
+                    messages.Add(DateTime.Now, "Failed to update AllPositions");
+                    return -1;
+                }
             }
-            else
+            catch
             {
-                messages.Add(DateTime.Now, "Failed to update AllPositions");
                 return -1;
             }
         }

@@ -13,16 +13,16 @@ namespace Tracker
         [STAThread]
         static void Main()
         {
-            try
-            {
+            //try
+            //{
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainForm());
-            }
-            catch (Exception e)
-            {
-                new Reporter(e);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    new Reporter(e);
+            //}
         }
     }
 

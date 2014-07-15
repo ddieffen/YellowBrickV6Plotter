@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Tracker.Data;
 using YellowbrickV6.Entities;
+using YellowbrickV6;
 
 namespace Tracker.Gui.Controls
 {
@@ -34,13 +35,14 @@ namespace Tracker.Gui.Controls
                 this.labelName.ForeColor = Tools.InvertMeAColour(ColorTranslator.FromHtml("#" + td.colour));
                 this.labelType.Text = td.model;
                 this.labelSail.Text = td.sail;
-                Moment latestMoment = (td as TeamData).LatestMoment;
+                Moment latestMoment = (td as Team).LatestMoment();
                 if (latestMoment != null)
                 {
-                    this.labelPositionAt.Text = latestMoment.at.ToString();
-                    this.labelPosition.Text = latestMoment.ToString();
+                    this.labelPositionAt.Text = TimeTools.UnixTimeStampToDateTime(latestMoment.at).ToLocalTime().ToString();
+                    this.labelPosition.Text = "Lat: " + latestMoment.lat.ToString("F6") + "   Lon: " + latestMoment.lon.ToString("F6");
                     this.labelSpeed.Text = latestMoment.spd.ToString("F2") + " kn / " + latestMoment.heading.ToString("F0") + " deg";
-                    this.labelDistanceToGo.Text = latestMoment.dtf.ToString() + "nm";
+                    this.labelDistanceToGo.Text = UnitTools.M2Nm(latestMoment.dtf).ToString("F1") + "nm";
+                    this.labelStatus.Text = td.status;
                 }
             }
             catch (Exception e)

@@ -84,8 +84,8 @@
   <ItemGroup>
     <Compile Include="Data\Contour.cs" />
     <Compile Include="Data\Holder.cs" />
-    <Compile Include="Data\RaceData.cs" />
-    <Compile Include="Data\TeamData.cs" />
+    <Compile Include="Data\RaceExtensions.cs" />
+    <Compile Include="Data\TeamExtensions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
