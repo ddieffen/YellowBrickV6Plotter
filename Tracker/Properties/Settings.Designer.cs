@@ -109,7 +109,7 @@ namespace Tracker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("shtp2014")]
+        [global::System.Configuration.DefaultSettingValueAttribute("chicagomack2014")]
         public string RaceKey {
             get {
                 return ((string)(this["RaceKey"]));

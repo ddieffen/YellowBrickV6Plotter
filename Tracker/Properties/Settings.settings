@@ -24,7 +24,7 @@
       <Value Profile="(Default)">-1</Value>
     </Setting>
     <Setting Name="RaceKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">shtp2014</Value>
+      <Value Profile="(Default)">chicagomack2014</Value>
     </Setting>
     <Setting Name="MySection" Type="System.String" Scope="User">
       <Value Profile="(Default)">-1</Value>
