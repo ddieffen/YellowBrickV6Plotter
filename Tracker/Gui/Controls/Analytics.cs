@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Tracker.Data;
 using YellowbrickV6.Entities;
+using YellowbrickV6;
 
 namespace Tracker.Gui.Controls
 {
@@ -113,7 +114,7 @@ namespace Tracker.Gui.Controls
 
         public String DistanceToGo
         {
-            get { return Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment().dtf.ToString("F2"); }
+            get { return UnitTools.M2Nm(Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment().dtf).ToString("F2"); }
         }
 
         public String ToGoDifference
@@ -125,7 +126,7 @@ namespace Tracker.Gui.Controls
                     Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
                     Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
-                    return (mine.dtf - theirs.dtf).ToString("F2");
+                    return UnitTools.M2Nm(mine.dtf - theirs.dtf).ToString("F2");
                 }
                 return "NaN";
             }
