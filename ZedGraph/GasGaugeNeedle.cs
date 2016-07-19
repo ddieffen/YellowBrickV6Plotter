@@ -19,19 +19,18 @@
 using System.Runtime.Serialization;
 using System.Drawing.Drawing2D;
 using System;
-using System.Text;
 using System.Drawing;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class representing a needle on the GasGuage chart
-	/// <see cref="GasGaugeNeedle"/>s.
-	/// </summary>
-	/// <author> Jay Mistry </author>
-	/// <version> $Revision: 1.2 $ $Date: 2007-08-11 14:37:47 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class representing a needle on the GasGuage chart
+    /// <see cref="GasGaugeNeedle"/>s.
+    /// </summary>
+    /// <author> Jay Mistry </author>
+    /// <version> $Revision: 1.2 $ $Date: 2007-08-11 14:37:47 $ </version>
+    [Serializable]
 	public class GasGaugeNeedle : CurveItem, ICloneable, ISerializable
 	{
 	#region Fields

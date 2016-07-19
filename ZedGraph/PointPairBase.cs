@@ -21,21 +21,20 @@ using System;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IComparer = System.Collections.IComparer;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// This is a base class that provides base-level functionality for a data point consisting
-	/// of an (X,Y) pair of double values.
-	/// </summary>
-	/// <remarks>
-	/// This class is typically a base class for actual <see cref="PointPair" /> type implementations.
-	/// </remarks>
-	/// 
-	/// <author> Jerry Vos modified by John Champion </author>
-	/// <version> $Revision: 1.4 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// This is a base class that provides base-level functionality for a data point consisting
+    /// of an (X,Y) pair of double values.
+    /// </summary>
+    /// <remarks>
+    /// This class is typically a base class for actual <see cref="PointPair" /> type implementations.
+    /// </remarks>
+    /// 
+    /// <author> Jerry Vos modified by John Champion </author>
+    /// <version> $Revision: 1.4 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	public class PointPairBase : ISerializable
 	{
 

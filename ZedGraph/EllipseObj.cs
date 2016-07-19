@@ -20,23 +20,22 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that represents a bordered and/or filled ellipse object on
-	/// the graph.  A list of EllipseObj objects is maintained by the
-	/// <see cref="GraphObjList"/> collection class.  The ellipse is defined
-	/// as the ellipse that would be contained by the rectangular box as
-	/// defined by the <see cref="Location"/> property.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.3 $ $Date: 2007-01-25 07:56:08 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that represents a bordered and/or filled ellipse object on
+    /// the graph.  A list of EllipseObj objects is maintained by the
+    /// <see cref="GraphObjList"/> collection class.  The ellipse is defined
+    /// as the ellipse that would be contained by the rectangular box as
+    /// defined by the <see cref="Location"/> property.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.3 $ $Date: 2007-01-25 07:56:08 $ </version>
+    [Serializable]
 	public class EllipseObj : BoxObj, ICloneable, ISerializable
 	{
 	#region Constructors

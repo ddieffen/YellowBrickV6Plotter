@@ -19,16 +19,14 @@
 
 using System;
 using System.Collections;
-using System.Text;
-using System.Drawing;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// An enum used to specify the X or Y data type of interest -- see
-	/// <see cref="SampleMultiPointList.XData" /> and <see cref="SampleMultiPointList.YData" />.
-	/// </summary>
-	public enum PerfDataType
+    /// <summary>
+    /// An enum used to specify the X or Y data type of interest -- see
+    /// <see cref="SampleMultiPointList.XData" /> and <see cref="SampleMultiPointList.YData" />.
+    /// </summary>
+    public enum PerfDataType
 	{
 		/// <summary>
 		/// The time (seconds) at which these data are measured

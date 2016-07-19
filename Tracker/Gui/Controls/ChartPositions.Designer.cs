@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBoxTeams = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBoxSections = new System.Windows.Forms.CheckedListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.teamInfo1 = new Tracker.Gui.Controls.TeamInfo();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -45,15 +46,18 @@
             this.checkBoxRumLine = new System.Windows.Forms.CheckBox();
             this.checkBoxTeamsTrace = new System.Windows.Forms.CheckBox();
             this.checkBoxCenterSelected = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -111,8 +115,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.checkedListBox2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkedListBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBoxTeams, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkedListBoxSections, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -122,25 +126,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(442, 159);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // checkedListBox2
+            // checkedListBoxTeams
             // 
-            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(224, 3);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(215, 153);
-            this.checkedListBox2.TabIndex = 4;
-            this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
+            this.checkedListBoxTeams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBoxTeams.FormattingEnabled = true;
+            this.checkedListBoxTeams.Location = new System.Drawing.Point(224, 3);
+            this.checkedListBoxTeams.Name = "checkedListBoxTeams";
+            this.checkedListBoxTeams.Size = new System.Drawing.Size(215, 153);
+            this.checkedListBoxTeams.TabIndex = 4;
+            this.checkedListBoxTeams.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             // 
-            // checkedListBox1
+            // checkedListBoxSections
             // 
-            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(215, 153);
-            this.checkedListBox1.TabIndex = 3;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+            this.checkedListBoxSections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBoxSections.FormattingEnabled = true;
+            this.checkedListBoxSections.Location = new System.Drawing.Point(3, 3);
+            this.checkedListBoxSections.Name = "checkedListBoxSections";
+            this.checkedListBoxSections.Size = new System.Drawing.Size(215, 153);
+            this.checkedListBoxSections.TabIndex = 3;
+            this.checkedListBoxSections.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
             // panel2
             // 
@@ -284,15 +288,18 @@
             this.Size = new System.Drawing.Size(698, 613);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -306,8 +313,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxTeams;
+        private System.Windows.Forms.CheckedListBox checkedListBoxSections;
         private System.Windows.Forms.Panel panel2;
         private TeamInfo teamInfo1;
         private System.Windows.Forms.SplitContainer splitContainer3;

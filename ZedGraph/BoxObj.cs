@@ -19,22 +19,20 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that represents a bordered and/or filled box (rectangle) object on
-	/// the graph.  A list of
-	/// BoxObj objects is maintained by the <see cref="GraphObjList"/> collection class.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.3 $ $Date: 2007-01-25 07:56:08 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that represents a bordered and/or filled box (rectangle) object on
+    /// the graph.  A list of
+    /// BoxObj objects is maintained by the <see cref="GraphObjList"/> collection class.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.3 $ $Date: 2007-01-25 07:56:08 $ </version>
+    [Serializable]
 	public class BoxObj : GraphObj, ICloneable, ISerializable
 	{
 	#region Fields

@@ -17,19 +17,18 @@
 //Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //=============================================================================
 using System;
-using System.Text;
 using System.Drawing;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class designed to simplify the process of getting the actual value for
-	/// the various stacked and regular curve types
-	/// </summary>
-	/// 
-	/// <author> John Champion</author>
-	/// <version> $Revision: 3.21 $ $Date: 2008-12-02 12:55:34 $ </version>
-	public class ValueHandler
+    /// <summary>
+    /// A class designed to simplify the process of getting the actual value for
+    /// the various stacked and regular curve types
+    /// </summary>
+    /// 
+    /// <author> John Champion</author>
+    /// <version> $Revision: 3.21 $ $Date: 2008-12-02 12:55:34 $ </version>
+    public class ValueHandler
 	{
 		private GraphPane _pane;
 

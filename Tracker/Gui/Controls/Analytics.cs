@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Tracker.Data;
-using YellowbrickV6.Entities;
-using YellowbrickV6;
+using YellowbrickV8.Entities;
+using YellowbrickV8;
 
 namespace Tracker.Gui.Controls
 {
@@ -63,7 +60,7 @@ namespace Tracker.Gui.Controls
                 IEnumerable<Team> teams = (from t in Holder.race.teams
                                            where t as Team != null && checkedTeams.Contains(t.id)
                                            select t as Team).ToList();
-                foreach (Team td in teams.OrderBy(item => item.LatestMoment().dtf))
+                foreach (Team td in teams.OrderBy(item => item.LatestMoment().dtfMeters))
                 {
                     scores.Add(new ScoringItem(positionCount, td.id));
                     positionCount++;
@@ -85,9 +82,9 @@ namespace Tracker.Gui.Controls
             this.InitializeCombo();
             this.InitializeScores();
         }
+
         #endregion
 
-       
     }
 
 
@@ -114,7 +111,7 @@ namespace Tracker.Gui.Controls
 
         public String DistanceToGo
         {
-            get { return UnitTools.M2Nm(Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment().dtf).ToString("F2"); }
+            get { return UnitTools.M2Nm(Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment().dtfMeters).ToString("F2"); }
         }
 
         public String ToGoDifference
@@ -126,7 +123,7 @@ namespace Tracker.Gui.Controls
                     Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
                     Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
-                    return UnitTools.M2Nm(mine.dtf - theirs.dtf).ToString("F2");
+                    return UnitTools.M2Nm(mine.dtfMeters - theirs.dtfMeters).ToString("F2");
                 }
                 return "NaN";
             }
@@ -141,7 +138,7 @@ namespace Tracker.Gui.Controls
                     Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
                     Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
-                    return YellowbrickV6.CoordinateTools.HaversineDistanceNauticalMiles(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F2");
+                    return YellowbrickV8.CoordinateTools.HaversineDistanceNauticalMiles(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F2");
                 }
                 return "NaN";
             }
@@ -156,7 +153,7 @@ namespace Tracker.Gui.Controls
                     Moment mine = Holder.race.teams.Single(t => t.id == Tracker.Properties.Settings.Default.MyTeam).LatestMoment();
                     Moment theirs = Holder.race.teams.Single(t => t.id == this.teamId).LatestMoment();
 
-                    return YellowbrickV6.CoordinateTools.HaversineHeadingDegrees(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F0");
+                    return YellowbrickV8.CoordinateTools.HaversineHeadingDegrees(mine.lat, mine.lon, theirs.lat, theirs.lon).ToString("F0");
                 }
                 return "NaN";
             }

@@ -19,37 +19,31 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.IO;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.ComponentModel;
 
 namespace ZedGraph
 {
-	// <summary>
-	// <c>ZedGraph</c> is a class library and UserControl (<see cref="ZedGraphControl"/>) that display
-	// 2D line graphs of user specified data.  The <c>ZedGraph</c> namespace includes all functionality
-	// required to draw, modify, and update the graph.
-	// </summary>
+    // <summary>
+    // <c>ZedGraph</c> is a class library and UserControl (<see cref="ZedGraphControl"/>) that display
+    // 2D line graphs of user specified data.  The <c>ZedGraph</c> namespace includes all functionality
+    // required to draw, modify, and update the graph.
+    // </summary>
 
-	/// <summary>
-	/// Class <see cref="GraphPane"/> encapsulates the graph pane, which is all display elements
-	/// associated with an individual graph.
-	/// </summary>
-	/// <remarks>This class is the outside "wrapper"
-	/// for the ZedGraph classes, and provides the interface to access the attributes
-	/// of the graph.  You can have multiple graphs in the same document or form,
-	/// just instantiate multiple GraphPane's.
-	/// </remarks>
-	/// 
-	/// <author> John Champion modified by Jerry Vos </author>
-	/// <version> $Revision: 3.81 $ $Date: 2007-09-30 07:44:11 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Class <see cref="GraphPane"/> encapsulates the graph pane, which is all display elements
+    /// associated with an individual graph.
+    /// </summary>
+    /// <remarks>This class is the outside "wrapper"
+    /// for the ZedGraph classes, and provides the interface to access the attributes
+    /// of the graph.  You can have multiple graphs in the same document or form,
+    /// just instantiate multiple GraphPane's.
+    /// </remarks>
+    /// 
+    /// <author> John Champion modified by Jerry Vos </author>
+    /// <version> $Revision: 3.81 $ $Date: 2007-09-30 07:44:11 $ </version>
+    [Serializable]
 	public class GraphPane : PaneBase, ICloneable, ISerializable
 	{
 

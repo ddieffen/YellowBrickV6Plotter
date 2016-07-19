@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Tracker.Data;
-using YellowbrickV6.Entities;
-using YellowbrickV6;
+using YellowbrickV8.Entities;
+using YellowbrickV8;
 
 namespace Tracker.Gui.Controls
 {
@@ -40,8 +35,8 @@ namespace Tracker.Gui.Controls
                 {
                     this.labelPositionAt.Text = TimeTools.UnixTimeStampToDateTime(latestMoment.at).ToLocalTime().ToString();
                     this.labelPosition.Text = "Lat: " + latestMoment.lat.ToString("F6") + "   Lon: " + latestMoment.lon.ToString("F6");
-                    this.labelSpeed.Text = latestMoment.spd.ToString("F2") + " kn / " + latestMoment.heading.ToString("F0") + " deg";
-                    this.labelDistanceToGo.Text = UnitTools.M2Nm(latestMoment.dtf).ToString("F1") + "nm";
+                    this.labelSpeed.Text = latestMoment.spdKn.ToString("F2") + " kn / " + latestMoment.heading.ToString("F0") + " deg";
+                    this.labelDistanceToGo.Text = UnitTools.M2Nm(latestMoment.dtfMeters).ToString("F1") + "nm";
                     this.labelStatus.Text = td.status;
                 }
             }

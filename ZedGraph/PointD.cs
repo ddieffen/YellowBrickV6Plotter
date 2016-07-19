@@ -18,21 +18,16 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Simple struct that stores X and Y coordinates as doubles.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Simple struct that stores X and Y coordinates as doubles.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
+    [Serializable]
 	public struct PointD
 	{
 		/// <summary>

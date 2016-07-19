@@ -20,12 +20,9 @@
 #region Using directives
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Drawing.Text;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -33,14 +30,14 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class containing a list of <see cref="GraphPane"/> objects
-	/// organized together in some form.
-	/// </summary>
-	/// 
-	/// <author>John Champion</author>
-	/// <version> $Revision: 3.26 $ $Date: 2007-11-05 18:28:56 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection class containing a list of <see cref="GraphPane"/> objects
+    /// organized together in some form.
+    /// </summary>
+    /// 
+    /// <author>John Champion</author>
+    /// <version> $Revision: 3.26 $ $Date: 2007-11-05 18:28:56 $ </version>
+    [Serializable]
 	public class MasterPane : PaneBase, ICloneable, ISerializable, IDeserializationCallback
 	{
 

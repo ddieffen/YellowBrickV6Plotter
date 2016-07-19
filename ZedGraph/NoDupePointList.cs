@@ -19,17 +19,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A simple storage struct to maintain an individual sampling of data.  This only
-	/// contains two data values in order to reduce to memory load for large datasets.
-	/// (e.g., no Tag or Z property)
-	/// </summary>
-	public struct DataPoint
+    /// <summary>
+    /// A simple storage struct to maintain an individual sampling of data.  This only
+    /// contains two data values in order to reduce to memory load for large datasets.
+    /// (e.g., no Tag or Z property)
+    /// </summary>
+    public struct DataPoint
 	{
 		/// <summary>
 		/// The X value for the point, stored as a double type.

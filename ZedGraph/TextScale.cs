@@ -18,28 +18,26 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The TextScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.Text" />.
-	/// </summary>
-	/// <remarks>
-	/// TextScale is an ordinal axis with user-defined text labels.  An ordinal axis means that
-	/// all data points are evenly spaced at integral values, and the actual coordinate values
-	/// for points corresponding to that axis are ignored.  That is, if the X axis is an
-	/// ordinal type, then all X values associated with the curves are ignored.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.8 $ $Date: 2006-08-25 05:19:09 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The TextScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.Text" />.
+    /// </summary>
+    /// <remarks>
+    /// TextScale is an ordinal axis with user-defined text labels.  An ordinal axis means that
+    /// all data points are evenly spaced at integral values, and the actual coordinate values
+    /// for points corresponding to that axis are ignored.  That is, if the X axis is an
+    /// ordinal type, then all X values associated with the curves are ignored.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.8 $ $Date: 2006-08-25 05:19:09 $ </version>
+    [Serializable]
 	class TextScale : Scale, ISerializable //, ICloneable
 	{
 

@@ -19,23 +19,22 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates a bar type that displays vertical or horizontal bars
-	/// </summary>
-	/// <remarks>
-	/// The orientation of the bars depends on the state of
-	/// <see cref="BarSettings.Base"/>, and the bars can be stacked or
-	/// clustered, depending on the state of <see cref="BarSettings.Type"/>
-	/// </remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.27 $ $Date: 2007-11-03 04:41:28 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates a bar type that displays vertical or horizontal bars
+    /// </summary>
+    /// <remarks>
+    /// The orientation of the bars depends on the state of
+    /// <see cref="BarSettings.Base"/>, and the bars can be stacked or
+    /// clustered, depending on the state of <see cref="BarSettings.Type"/>
+    /// </remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.27 $ $Date: 2007-11-03 04:41:28 $ </version>
+    [Serializable]
 	public class BarItem : CurveItem, ICloneable, ISerializable
 	{
 	#region Fields

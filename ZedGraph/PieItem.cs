@@ -19,7 +19,6 @@
 
 using System;
 using System.Drawing;
-using System.Collections;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Runtime.Serialization;
@@ -27,13 +26,13 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class representing a pie chart object comprised of one or more
-	/// <see cref="PieItem"/>s.
-	/// </summary>
-	/// <author> Bob Kaye </author>
-	/// <version> $Revision: 1.32 $ $Date: 2007-07-30 05:26:23 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class representing a pie chart object comprised of one or more
+    /// <see cref="PieItem"/>s.
+    /// </summary>
+    /// <author> Bob Kaye </author>
+    /// <version> $Revision: 1.32 $ $Date: 2007-07-30 05:26:23 $ </version>
+    [Serializable]
 	public class PieItem : CurveItem, ICloneable, ISerializable
 	{
 

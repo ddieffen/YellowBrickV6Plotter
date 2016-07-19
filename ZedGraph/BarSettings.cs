@@ -18,20 +18,18 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Class that handles the global settings for bar charts
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.6 $ $Date: 2007-12-30 23:27:39 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Class that handles the global settings for bar charts
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.6 $ $Date: 2007-12-30 23:27:39 $ </version>
+    [Serializable]
 	public class BarSettings : ISerializable
 	{
 	#region Fields

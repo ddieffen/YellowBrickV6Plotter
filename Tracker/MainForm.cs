@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using Tracker.Data;
 using System.IO;
-using System.Net;
-using System.Net.Cache;
 using Tracker.Gui.Controls;
 
 namespace Tracker
@@ -72,6 +65,7 @@ namespace Tracker
             {
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
+                this.scatter1.UpdateDisplay();
                 this.SetStatusThreadSafe("Ready");
             }
         }
@@ -130,6 +124,7 @@ namespace Tracker
                 this.SetStatusThreadSafe("Ready");
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
+                this.scatter1.UpdateDisplay();
 
                 this.SavingWorker.RunWorkerAsync();
             }
@@ -164,6 +159,7 @@ namespace Tracker
             this.chartPositions1.UpdateDisplay();
             this.analytics1.UpdateDisplay();
             this.SavingWorker.RunWorkerAsync();
+            this.scatter1.UpdateDisplay();
         }
 
         /// <summary>
@@ -273,6 +269,7 @@ namespace Tracker
             {
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
+                this.scatter1.UpdateDisplay();
                 this.SavingWorker.RunWorkerAsync();
                 MessageBox.Show("Race Updated!");
             }
@@ -289,6 +286,7 @@ namespace Tracker
             {
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
+                this.scatter1.UpdateDisplay();
                 this.SavingWorker.RunWorkerAsync();
                 MessageBox.Show("All Positions Updated!");
             }
@@ -305,6 +303,7 @@ namespace Tracker
             {
                 this.chartPositions1.UpdateDisplay();
                 this.analytics1.UpdateDisplay();
+                this.scatter1.UpdateDisplay();
                 this.SavingWorker.RunWorkerAsync();
                 MessageBox.Show(" Latest Positions Updated!");
             }

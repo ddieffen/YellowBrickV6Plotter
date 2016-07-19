@@ -18,27 +18,25 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The DateScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.Date" />.
-	/// </summary>
-	/// <remarks>
-	/// DateScale is a cartesian axis with calendar dates or times.  The actual data values should
-	/// be created with the <see cref="XDate" /> type, which is directly translatable to a
-	/// <see cref="System.Double" /> type for storage in the point value arrays.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.15 $ $Date: 2007-09-19 06:41:56 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The DateScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.Date" />.
+    /// </summary>
+    /// <remarks>
+    /// DateScale is a cartesian axis with calendar dates or times.  The actual data values should
+    /// be created with the <see cref="XDate" /> type, which is directly translatable to a
+    /// <see cref="System.Double" /> type for storage in the point value arrays.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.15 $ $Date: 2007-09-19 06:41:56 $ </version>
+    [Serializable]
 	class DateScale : Scale, ISerializable //, ICloneable
 	{
 

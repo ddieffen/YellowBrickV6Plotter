@@ -19,21 +19,19 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that encapsulates Border (frame) properties for an object.  The <see cref="Border"/> class
-	/// is used in a variety of ZedGraph objects to handle the drawing of the Border around the object.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.18 $ $Date: 2007-03-17 18:43:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that encapsulates Border (frame) properties for an object.  The <see cref="Border"/> class
+    /// is used in a variety of ZedGraph objects to handle the drawing of the Border around the object.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.18 $ $Date: 2007-03-17 18:43:44 $ </version>
+    [Serializable]
 	public class Border : LineBase, ISerializable, ICloneable
 	{
 	#region Fields

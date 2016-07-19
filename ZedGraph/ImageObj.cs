@@ -22,7 +22,6 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,15 +29,15 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that represents an image object on the graph.  A list of
-	/// <see cref="GraphObj"/> objects is maintained by the <see cref="GraphObjList"/>
-	/// collection class.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.2 $ $Date: 2006-09-09 17:32:01 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that represents an image object on the graph.  A list of
+    /// <see cref="GraphObj"/> objects is maintained by the <see cref="GraphObjList"/>
+    /// collection class.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.2 $ $Date: 2006-09-09 17:32:01 $ </version>
+    [Serializable]
 	public class ImageObj : GraphObj, ICloneable, ISerializable
 	{
 	#region Fields

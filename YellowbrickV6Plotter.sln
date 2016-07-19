@@ -1,11 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowbrickV6Plotter", "Tracker\YellowbrickV6Plotter.csproj", "{6DFCA750-2FA5-4715-9649-17E2EFC3B646}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedGraph", "ZedGraph.csproj", "{2541686B-1673-43BF-AF89-3163945DB009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowbrickV6", "..\YellowBrickV6\YellowbrickV6\YellowbrickV6\YellowbrickV6.csproj", "{651E9F05-1674-427D-852A-5C14EDFEA438}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowbrickV8", "..\GribMailListener\GribMailListener\YellowbrickV8\YellowbrickV8.csproj", "{360FF0EB-6694-49B2-B82B-E58329C57012}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,16 +42,18 @@ Global
 		{2541686B-1673-43BF-AF89-3163945DB009}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2541686B-1673-43BF-AF89-3163945DB009}.Release|x86.ActiveCfg = Release|Any CPU
 		{2541686B-1673-43BF-AF89-3163945DB009}.Release|x86.Build.0 = Release|Any CPU
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Debug|x86.ActiveCfg = Debug|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Debug|x86.Build.0 = Debug|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Release|Any CPU.ActiveCfg = Release|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Release|Mixed Platforms.Build.0 = Release|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Release|x86.ActiveCfg = Release|x86
-		{651E9F05-1674-427D-852A-5C14EDFEA438}.Release|x86.Build.0 = Release|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|x86.ActiveCfg = Debug|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Debug|x86.Build.0 = Debug|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|Mixed Platforms.Build.0 = Release|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|x86.ActiveCfg = Release|x86
+		{360FF0EB-6694-49B2-B82B-E58329C57012}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,7 +22,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,23 +29,23 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates an "High-Low" Bar curve type that displays a bar in which both
-	/// the bottom and the top of the bar are set by data valuesfrom the
-	/// <see cref="PointPair"/> struct.
-	/// </summary>
-	/// <remarks>The <see cref="HiLowBarItem"/> type is intended for displaying
-	/// bars that cover a band of data, such as a confidence interval, "waterfall"
-	/// chart, etc.  The position of each bar is set
-	/// according to the <see cref="PointPair"/> values.  The independent axis
-	/// is assigned with <see cref="BarSettings.Base"/>, and is a
-	/// <see cref="BarBase"/> enum type.  If <see cref="BarSettings.Base"/>
-	/// is set to <see cref="ZedGraph.BarBase.Y"/> or <see cref="ZedGraph.BarBase.Y2"/>, then
-	/// the bars will actually be horizontal, since the X axis becomes the
-	/// value axis and the Y or Y2 axis becomes the independent axis.</remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.18 $ $Date: 2007-11-03 04:41:28 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates an "High-Low" Bar curve type that displays a bar in which both
+    /// the bottom and the top of the bar are set by data valuesfrom the
+    /// <see cref="PointPair"/> struct.
+    /// </summary>
+    /// <remarks>The <see cref="HiLowBarItem"/> type is intended for displaying
+    /// bars that cover a band of data, such as a confidence interval, "waterfall"
+    /// chart, etc.  The position of each bar is set
+    /// according to the <see cref="PointPair"/> values.  The independent axis
+    /// is assigned with <see cref="BarSettings.Base"/>, and is a
+    /// <see cref="BarBase"/> enum type.  If <see cref="BarSettings.Base"/>
+    /// is set to <see cref="ZedGraph.BarBase.Y"/> or <see cref="ZedGraph.BarBase.Y2"/>, then
+    /// the bars will actually be horizontal, since the X axis becomes the
+    /// value axis and the Y or Y2 axis becomes the independent axis.</remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.18 $ $Date: 2007-11-03 04:41:28 $ </version>
+    [Serializable]
 	public class HiLowBarItem : BarItem, ICloneable, ISerializable
 	{
 

@@ -19,18 +19,17 @@
 
 using System;
 using System.Drawing;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Class that holds the specific properties for the minor tics.
-	/// </summary>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Class that holds the specific properties for the minor tics.
+    /// </summary>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
+    [Serializable]
 	public class MinorTic : ICloneable, ISerializable
 	{
 		internal bool	_isOutside,

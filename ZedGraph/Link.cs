@@ -18,21 +18,19 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that maintains hyperlink information for a clickable object on the graph.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.6 $ $Date: 2007-04-16 00:03:02 $ </version>
-	// /// <seealso cref="ZedGraph.Web.IsImageMap"/>
-	[Serializable]
+    /// <summary>
+    /// A class that maintains hyperlink information for a clickable object on the graph.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.6 $ $Date: 2007-04-16 00:03:02 $ </version>
+    // /// <seealso cref="ZedGraph.Web.IsImageMap"/>
+    [Serializable]
 	public class Link : ISerializable, ICloneable
 	{
 

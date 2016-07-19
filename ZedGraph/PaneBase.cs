@@ -20,7 +20,6 @@
 #region Using directives
 
 using System;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -33,14 +32,14 @@ using System.IO;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// An abstract base class that defines basic functionality for handling a pane.  This class is the
-	/// parent class for <see cref="MasterPane"/> and <see cref="GraphPane"/>.
-	/// </summary>
-	/// 
-	/// <author>John Champion</author>
-	/// <version> $Revision: 3.32 $ $Date: 2007-11-05 18:28:56 $ </version>
-	abstract public class PaneBase : ICloneable
+    /// <summary>
+    /// An abstract base class that defines basic functionality for handling a pane.  This class is the
+    /// parent class for <see cref="MasterPane"/> and <see cref="GraphPane"/>.
+    /// </summary>
+    /// 
+    /// <author>John Champion</author>
+    /// <version> $Revision: 3.32 $ $Date: 2007-11-05 18:28:56 $ </version>
+    abstract public class PaneBase : ICloneable
 	{
 
 	#region Fields

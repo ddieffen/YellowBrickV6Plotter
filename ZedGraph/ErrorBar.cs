@@ -21,8 +21,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,19 +28,19 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// This class handles the drawing of the curve <see cref="ErrorBar"/> objects.
-	/// The Error Bars are the vertical lines with a symbol at each end.
-	/// </summary>
-	/// <remarks>To draw "I-Beam" bars, the symbol type defaults to
-	/// <see cref="SymbolType.HDash"/>, which is just a horizontal line.
-	/// If <see cref="BarBase"/> is Y-oriented, then the symbol type should be
-	/// set to <see cref="SymbolType.VDash"/> to get the same effect.
-	/// </remarks>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.21 $ $Date: 2007-08-10 16:22:54 $ </version>
-	[Serializable]
+    /// <summary>
+    /// This class handles the drawing of the curve <see cref="ErrorBar"/> objects.
+    /// The Error Bars are the vertical lines with a symbol at each end.
+    /// </summary>
+    /// <remarks>To draw "I-Beam" bars, the symbol type defaults to
+    /// <see cref="SymbolType.HDash"/>, which is just a horizontal line.
+    /// If <see cref="BarBase"/> is Y-oriented, then the symbol type should be
+    /// set to <see cref="SymbolType.VDash"/> to get the same effect.
+    /// </remarks>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.21 $ $Date: 2007-08-10 16:22:54 $ </version>
+    [Serializable]
 	public class ErrorBar : ICloneable, ISerializable
 	{
 	#region Fields

@@ -21,28 +21,25 @@
 
 using System;
 using System.Collections;
-using System.Text;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection base class containing basic extra functionality to be inherited
-	/// by <see cref="CurveList"/>, <see cref="IPointList"/>,
-	/// <see cref="GraphObjList"/>.
-	/// </summary>
-	/// <remarks>The methods in this collection operate on basic
-	/// <see cref="object"/> types.  Therefore, in order to make sure that
-	/// the derived classes remain strongly-typed, there are no Add() or
-	/// Insert() methods here, and no methods that return an object.
-	/// Only Remove(), Move(), IndexOf(), etc. methods are included.</remarks>
-	/// 
-	/// <author> John Champion</author>
-	/// <version> $Revision: 3.8 $ $Date: 2006-06-24 20:26:43 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection base class containing basic extra functionality to be inherited
+    /// by <see cref="CurveList"/>, <see cref="IPointList"/>,
+    /// <see cref="GraphObjList"/>.
+    /// </summary>
+    /// <remarks>The methods in this collection operate on basic
+    /// <see cref="object"/> types.  Therefore, in order to make sure that
+    /// the derived classes remain strongly-typed, there are no Add() or
+    /// Insert() methods here, and no methods that return an object.
+    /// Only Remove(), Move(), IndexOf(), etc. methods are included.</remarks>
+    /// 
+    /// <author> John Champion</author>
+    /// <version> $Revision: 3.8 $ $Date: 2006-06-24 20:26:43 $ </version>
+    [Serializable]
 	public class CollectionPlus : CollectionBase
 	{
 		/// <summary>

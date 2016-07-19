@@ -18,19 +18,18 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class containing a list of <see cref="StockPt"/> objects
-	/// that define the set of points to be displayed on the curve.
-	/// </summary>
-	/// 
-	/// <author> John Champion based on code by Jerry Vos</author>
-	/// <version> $Revision: 3.4 $ $Date: 2007-02-18 05:51:54 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection class containing a list of <see cref="StockPt"/> objects
+    /// that define the set of points to be displayed on the curve.
+    /// </summary>
+    /// 
+    /// <author> John Champion based on code by Jerry Vos</author>
+    /// <version> $Revision: 3.4 $ $Date: 2007-02-18 05:51:54 $ </version>
+    [Serializable]
 	public class StockPointList : List<StockPt>, IPointList, IPointListEdit
 	{
 

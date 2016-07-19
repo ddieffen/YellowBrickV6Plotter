@@ -19,20 +19,19 @@
 
 using System;
 using System.Drawing;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Class that handles the data associated with text title and its associated font
-	/// properties
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.2 $ $Date: 2007-03-11 02:08:16 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Class that handles the data associated with text title and its associated font
+    /// properties
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.2 $ $Date: 2007-03-11 02:08:16 $ </version>
+    [Serializable]
 	public class Label : ICloneable, ISerializable
 	{
 		/// <summary>

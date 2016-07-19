@@ -21,19 +21,18 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A LIFO stack of prior <see cref="ZoomState"/> objects, used to allow zooming out to prior
-	/// states (of scale range settings).
-	/// </summary>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
-	public class ZoomStateStack : List<ZoomState>, ICloneable
+    /// <summary>
+    /// A LIFO stack of prior <see cref="ZoomState"/> objects, used to allow zooming out to prior
+    /// states (of scale range settings).
+    /// </summary>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
+    public class ZoomStateStack : List<ZoomState>, ICloneable
 	{
 		/// <summary>
 		/// Default Constructor

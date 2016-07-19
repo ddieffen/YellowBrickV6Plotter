@@ -18,25 +18,23 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The LinearScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.Linear" />.
-	/// </summary>
-	/// <remarks>
-	/// LinearScale is the normal, default cartesian axis.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.10 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The LinearScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.Linear" />.
+    /// </summary>
+    /// <remarks>
+    /// LinearScale is the normal, default cartesian axis.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.10 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	class LinearScale : Scale, ISerializable //, ICloneable
 	{
 

@@ -18,29 +18,27 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The DateAsOrdinalScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.DateAsOrdinal" />.
-	/// </summary>
-	/// <remarks>DateAsOrdinalScale is an ordinal axis that will have labels formatted with dates from the
-	/// actual data values of the first <see cref="CurveItem" /> in the <see cref="CurveList" />.
-	/// Although the tics are labeled with real data values, the actual points will be
-	/// evenly-spaced in spite of the data values.  For example, if the X values of the first curve
-	/// are 1, 5, and 100, then the tic labels will show 1, 5, and 100, but they will be equal
-	/// distance from each other.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.13 $ $Date: 2007-11-28 02:38:22 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The DateAsOrdinalScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.DateAsOrdinal" />.
+    /// </summary>
+    /// <remarks>DateAsOrdinalScale is an ordinal axis that will have labels formatted with dates from the
+    /// actual data values of the first <see cref="CurveItem" /> in the <see cref="CurveList" />.
+    /// Although the tics are labeled with real data values, the actual points will be
+    /// evenly-spaced in spite of the data values.  For example, if the X values of the first curve
+    /// are 1, 5, and 100, then the tic labels will show 1, 5, and 100, but they will be equal
+    /// distance from each other.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.13 $ $Date: 2007-11-28 02:38:22 $ </version>
+    [Serializable]
 	class DateAsOrdinalScale : Scale, ISerializable //, ICloneable
 	{
 

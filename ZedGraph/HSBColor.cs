@@ -1,23 +1,21 @@
 using System;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Hue-Saturation-Brightness Color class to store a color value, and to manage conversions
-	/// to and from RGB colors in the <see cref="Color" /> struct.
-	/// </summary>
-	/// <remarks>
-	/// This class is based on code from http://www.cs.rit.edu/~ncs/color/ by Eugene Vishnevsky.
-	/// This struct stores the hue, saturation, brightness, and alpha values internally as
-	/// <see cref="byte" /> values from 0 to 255.  The hue represents a fraction of the 360 degrees
-	/// of color space available. The saturation is the color intensity, where 0 represents gray scale
-	/// and 255 is the most colored.  For the brightness, 0 represents black and 255
-	/// represents white.
-	/// </remarks>
-	[Serializable]
+    /// <summary>
+    /// Hue-Saturation-Brightness Color class to store a color value, and to manage conversions
+    /// to and from RGB colors in the <see cref="Color" /> struct.
+    /// </summary>
+    /// <remarks>
+    /// This class is based on code from http://www.cs.rit.edu/~ncs/color/ by Eugene Vishnevsky.
+    /// This struct stores the hue, saturation, brightness, and alpha values internally as
+    /// <see cref="byte" /> values from 0 to 255.  The hue represents a fraction of the 360 degrees
+    /// of color space available. The saturation is the color intensity, where 0 represents gray scale
+    /// and 255 is the most colored.  For the brightness, 0 represents black and 255
+    /// represents white.
+    /// </remarks>
+    [Serializable]
 	public struct HSBColor
 	{
 		/// <summary>

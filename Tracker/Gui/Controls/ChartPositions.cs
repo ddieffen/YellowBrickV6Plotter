@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Tracker.Data;
 using ZedGraph;
-using YellowbrickV6.Entities;
-using YellowbrickV6;
+using YellowbrickV8.Entities;
+using YellowbrickV8;
 
 namespace Tracker.Gui.Controls
 {
@@ -89,8 +87,8 @@ namespace Tracker.Gui.Controls
         {
             try
             {
-                this.checkedListBox1.Items.Clear();
-                this.checkedListBox2.Items.Clear();
+                this.checkedListBoxSections.Items.Clear();
+                this.checkedListBoxTeams.Items.Clear();
 
                 List<int> checkedSections = new List<int>();
                 foreach (string str in Holder.sectionsSelected.Split(','))
@@ -101,7 +99,7 @@ namespace Tracker.Gui.Controls
                 if (Holder.race != null)
                 {
                     foreach (Tag sec in Holder.race.tags)
-                        this.checkedListBox1.Items.Add(sec, checkedSections.Contains(sec.id));
+                        this.checkedListBoxSections.Items.Add(sec, checkedSections.Contains(sec.id));
                 }
                 List<int> checkedTeams = new List<int>();
                 foreach (string str in Holder.teamsSelected.Split(','))
@@ -135,7 +133,7 @@ namespace Tracker.Gui.Controls
         public void UpdateChart()
         {
             List<int> teamsToPlot = new List<int>();
-            foreach (object obj in this.checkedListBox2.CheckedItems)
+            foreach (object obj in this.checkedListBoxTeams.CheckedItems)
                 teamsToPlot.Add((obj as Team).id);
             this.UpdateChart(teamsToPlot);
 
@@ -188,10 +186,10 @@ namespace Tracker.Gui.Controls
         {
             if (Holder.race != null && Holder.race.teams != null)
             {
-                this.checkedListBox1.ItemCheck -= new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-                this.checkedListBox2.ItemCheck -= new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
+                this.checkedListBoxSections.ItemCheck -= new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+                this.checkedListBoxTeams.ItemCheck -= new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
 
-                this.checkedListBox2.Items.Clear();
+                this.checkedListBoxTeams.Items.Clear();
                 foreach (Team td in Holder.race.teams.OrderBy(item => item.name))
                 {
                     if (checkedSections != null && checkedSections.Count > 0)
@@ -200,18 +198,18 @@ namespace Tracker.Gui.Controls
                         {
                             if (td.tags.Contains(secid))
                             {
-                                this.checkedListBox2.Items.Add(td, checkedTeams.Contains(td.id));
+                                this.checkedListBoxTeams.Items.Add(td, checkedTeams.Contains(td.id));
                                 break;
                             }
                         }
                     }
                     else
-                        this.checkedListBox2.Items.Add(td, checkedTeams.Contains(td.id));
+                        this.checkedListBoxTeams.Items.Add(td, checkedTeams.Contains(td.id));
                 }
 
 
-                this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-                this.checkedListBox2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
+                this.checkedListBoxSections.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
+                this.checkedListBoxTeams.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox2_ItemCheck);
 
             }
         }
@@ -232,18 +230,18 @@ namespace Tracker.Gui.Controls
                             foreach (Moment tp in team.moments.OrderBy(item => item.at))
                                 ppl.Add(tp.lon, tp.lat, 
                                 "TEAM: " + team.name + "\r\n" +
-                                "SPD: " + tp.spd.ToString("F1") + " kn\r\n" +
+                                "SPD: " + tp.spdKn.ToString("F1") + " kn\r\n" +
                                 "HDG: " + tp.heading.ToString("F0") + "\r\n" +
-                                "DTF: " + UnitTools.M2Nm(tp.dtf).ToString("F1") + " nm");
+                                "DTF: " + UnitTools.M2Nm(tp.dtfMeters).ToString("F1") + " nm");
                         }
                         else
                         {
                             Moment latestPos = team.LatestMoment();
                             ppl.Add(latestPos.lon, latestPos.lat,
                                 "TEAM: " + team.name + "\r\n" +
-                                "SPD: " + latestPos.spd.ToString("F1") + " kn\r\n" +
+                                "SPD: " + latestPos.spdKn.ToString("F1") + " kn\r\n" +
                                 "HDG: " + latestPos.heading.ToString("F0") + "\r\n" + 
-                                "DTF: " + UnitTools.M2Nm(latestPos.dtf).ToString("F1") + " nm");
+                                "DTF: " + UnitTools.M2Nm(latestPos.dtfMeters).ToString("F1") + " nm");
                         }
 
                         LineItem myCurve = myPane.AddCurve(team.name, ppl, Tools.InvertMeAColour(ColorTranslator.FromHtml("#" + team.colour)), SymbolType.Circle);
@@ -308,14 +306,14 @@ namespace Tracker.Gui.Controls
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             List<int> checkedSections = new List<int>();
-            foreach (object obj in this.checkedListBox1.CheckedItems)
+            foreach (object obj in this.checkedListBoxSections.CheckedItems)
             {
                 checkedSections.Add((obj as Tag).id);
             }
             if (e.CurrentValue == CheckState.Unchecked)
-                checkedSections.Add((this.checkedListBox1.Items[e.Index] as Tag).id);
+                checkedSections.Add((this.checkedListBoxSections.Items[e.Index] as Tag).id);
             else
-                checkedSections.Remove((this.checkedListBox1.Items[e.Index] as Tag).id);
+                checkedSections.Remove((this.checkedListBoxSections.Items[e.Index] as Tag).id);
 
             string checkedSectionsText = "";
             foreach (int id in checkedSections)
@@ -334,14 +332,14 @@ namespace Tracker.Gui.Controls
         private void checkedListBox2_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             List<int> checkedTeams = new List<int>();
-            foreach (object obj in this.checkedListBox2.CheckedItems)
+            foreach (object obj in this.checkedListBoxTeams.CheckedItems)
             {
                 checkedTeams.Add((obj as Team).id);
             }
             if (e.CurrentValue == CheckState.Unchecked)
-                checkedTeams.Add((this.checkedListBox2.Items[e.Index] as Team).id);
+                checkedTeams.Add((this.checkedListBoxTeams.Items[e.Index] as Team).id);
             else
-                checkedTeams.Remove((this.checkedListBox2.Items[e.Index] as Team).id);
+                checkedTeams.Remove((this.checkedListBoxTeams.Items[e.Index] as Team).id);
 
             string checkedSectionsText = "";
             foreach (int id in checkedTeams)
@@ -360,7 +358,7 @@ namespace Tracker.Gui.Controls
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.teamInfo1.SetTeam((this.checkedListBox2.SelectedItem as Team));
+            this.teamInfo1.SetTeam((this.checkedListBoxTeams.SelectedItem as Team));
         }
         #endregion eventMethods
 

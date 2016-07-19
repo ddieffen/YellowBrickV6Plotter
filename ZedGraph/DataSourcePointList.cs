@@ -18,24 +18,21 @@
 //============================================================================= 
 
 using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Data;
 
 namespace ZedGraph
 {
-	/// <summary> 
-	///  
-	/// </summary> 
-	/// <seealso cref="IPointList" /> 
-	/// <seealso cref="IPointListEdit" /> 
-	///  
-	/// <author>John Champion</author> 
-	/// <version> $Revision: 3.7 $ $Date: 2007-11-05 04:33:26 $ </version> 
-	[Serializable]
+    /// <summary> 
+    ///  
+    /// </summary> 
+    /// <seealso cref="IPointList" /> 
+    /// <seealso cref="IPointListEdit" /> 
+    ///  
+    /// <author>John Champion</author> 
+    /// <version> $Revision: 3.7 $ $Date: 2007-11-05 04:33:26 $ </version> 
+    [Serializable]
 	public class DataSourcePointList : IPointList
 	{
 		private BindingSource _bindingSource;

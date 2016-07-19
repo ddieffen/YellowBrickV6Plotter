@@ -21,8 +21,6 @@ using System;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using System.Collections;
-using IComparer	= System.Collections.IComparer;
 
 #if ( !DOTNET1 )	// Is this a .Net 2 compilation?
 using System.Collections.Generic;
@@ -31,13 +29,13 @@ using System.Collections.Generic;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A simple point represented by an (X,Y,Z) group of double values.
-	/// </summary>
-	/// 
-	/// <author> Jerry Vos modified by John Champion </author>
-	/// <version> $Revision: 3.26 $ $Date: 2007-11-28 02:38:22 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A simple point represented by an (X,Y,Z) group of double values.
+    /// </summary>
+    /// 
+    /// <author> Jerry Vos modified by John Champion </author>
+    /// <version> $Revision: 3.26 $ $Date: 2007-11-28 02:38:22 $ </version>
+    [Serializable]
 	public class PointPair : PointPairBase, ISerializable, ICloneable
 	{
 	#region Member variables

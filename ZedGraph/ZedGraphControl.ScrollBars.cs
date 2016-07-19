@@ -18,14 +18,11 @@
 //=============================================================================
 
 using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace ZedGraph
 {
-	partial class ZedGraphControl
+    partial class ZedGraphControl
 	{
 
 	#region ScrollBars

@@ -19,21 +19,19 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-   /// <summary>
-   /// A class representing all the characteristics of the bar
-   /// segments that make up a curve on the graph.
-   /// </summary>
-   /// 
-   /// <author> John Champion </author>
-   /// <version> $Revision: 3.30 $ $Date: 2007-11-03 04:41:28 $ </version>
-   [Serializable]
+    /// <summary>
+    /// A class representing all the characteristics of the bar
+    /// segments that make up a curve on the graph.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.30 $ $Date: 2007-11-03 04:41:28 $ </version>
+    [Serializable]
    public class Bar : ICloneable, ISerializable
    {
 	#region Fields

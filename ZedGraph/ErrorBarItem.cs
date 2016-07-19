@@ -21,8 +21,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,27 +28,27 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates an "Error Bar" curve type that displays a vertical or horizontal
-	/// line with a symbol at each end.
-	/// </summary>
-	/// <remarks>The <see cref="ErrorBarItem"/> type is intended for displaying
-	/// confidence intervals, candlesticks, stock High-Low charts, etc.  It is
-	/// technically not a bar, since it is drawn as a vertical or horizontal line.
-	/// The default symbol at each end of the "bar" is <see cref="SymbolType.HDash"/>,
-	/// which creates an "I-Beam".  For horizontal bars
-	/// (<see cref="ZedGraph.BarBase.Y"/> or
-	/// <see cref="ZedGraph.BarBase.Y2"/>), you will need to change the symbol to
-	/// <see cref="SymbolType.VDash"/> to get horizontal "I-Beams".
-	/// Since the horizontal segments are actually symbols, their widths are
-	/// controlled by the symbol size in <see cref="ZedGraph.ErrorBar.Symbol"/>,
-	/// specified in points (1/72nd inch).  The position of each "I-Beam" is set
-	/// according to the <see cref="PointPair"/> values.  The independent axis
-	/// is assigned with <see cref="BarSettings.Base"/>, and is a
-	/// <see cref="ZedGraph.BarBase"/> enum type.</remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.19 $ $Date: 2007-04-16 00:03:01 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates an "Error Bar" curve type that displays a vertical or horizontal
+    /// line with a symbol at each end.
+    /// </summary>
+    /// <remarks>The <see cref="ErrorBarItem"/> type is intended for displaying
+    /// confidence intervals, candlesticks, stock High-Low charts, etc.  It is
+    /// technically not a bar, since it is drawn as a vertical or horizontal line.
+    /// The default symbol at each end of the "bar" is <see cref="SymbolType.HDash"/>,
+    /// which creates an "I-Beam".  For horizontal bars
+    /// (<see cref="ZedGraph.BarBase.Y"/> or
+    /// <see cref="ZedGraph.BarBase.Y2"/>), you will need to change the symbol to
+    /// <see cref="SymbolType.VDash"/> to get horizontal "I-Beams".
+    /// Since the horizontal segments are actually symbols, their widths are
+    /// controlled by the symbol size in <see cref="ZedGraph.ErrorBar.Symbol"/>,
+    /// specified in points (1/72nd inch).  The position of each "I-Beam" is set
+    /// according to the <see cref="PointPair"/> values.  The independent axis
+    /// is assigned with <see cref="BarSettings.Base"/>, and is a
+    /// <see cref="ZedGraph.BarBase"/> enum type.</remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.19 $ $Date: 2007-04-16 00:03:01 $ </version>
+    [Serializable]
 	public class ErrorBarItem : CurveItem, ICloneable, ISerializable
 	{
 	#region Fields

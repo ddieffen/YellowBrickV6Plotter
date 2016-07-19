@@ -18,30 +18,28 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The LinearAsOrdinalScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.LinearAsOrdinal" />.
-	/// </summary>
-	/// <remarks>
-	/// LinearAsOrdinal is an ordinal axis that will have labels formatted with values from the actual data
-	/// values of the first <see cref="CurveItem" /> in the <see cref="CurveList" />.
-	/// Although the tics are labeled with real data values, the actual points will be
-	/// evenly-spaced in spite of the data values.  For example, if the X values of the first curve
-	/// are 1, 5, and 100, then the tic labels will show 1, 5, and 100, but they will be equal
-	/// distance from each other.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.10 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The LinearAsOrdinalScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.LinearAsOrdinal" />.
+    /// </summary>
+    /// <remarks>
+    /// LinearAsOrdinal is an ordinal axis that will have labels formatted with values from the actual data
+    /// values of the first <see cref="CurveItem" /> in the <see cref="CurveList" />.
+    /// Although the tics are labeled with real data values, the actual points will be
+    /// evenly-spaced in spite of the data values.  For example, if the X values of the first curve
+    /// are 1, 5, and 100, then the tic labels will show 1, 5, and 100, but they will be equal
+    /// distance from each other.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.10 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	class LinearAsOrdinalScale : Scale, ISerializable //, ICloneable
 	{
 

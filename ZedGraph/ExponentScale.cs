@@ -18,26 +18,24 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The ExponentScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.Exponent" />.
-	/// </summary>
-	/// <remarks>
-	/// ExponentScale is a non-linear axis in which the values are scaled using an exponential function
-	/// with the <see cref="Scale.Exponent" /> property.
-	/// </remarks>
-	/// 
-	/// <author> John Champion with contributions by jackply </author>
-	/// <version> $Revision: 1.8 $ $Date: 2007-04-16 00:03:01 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The ExponentScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.Exponent" />.
+    /// </summary>
+    /// <remarks>
+    /// ExponentScale is a non-linear axis in which the values are scaled using an exponential function
+    /// with the <see cref="Scale.Exponent" /> property.
+    /// </remarks>
+    /// 
+    /// <author> John Champion with contributions by jackply </author>
+    /// <version> $Revision: 1.8 $ $Date: 2007-04-16 00:03:01 $ </version>
+    [Serializable]
 	class ExponentScale : Scale, ISerializable //, ICloneable
 	{
 

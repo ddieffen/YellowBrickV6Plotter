@@ -21,18 +21,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class that maintains a list of <see cref="ScaleState" />
-	/// objects, corresponding to the list of <see cref="Axis" /> objects
-	/// from <see cref="GraphPane.YAxisList" /> or <see cref="GraphPane.Y2AxisList" />.
-	/// </summary>
-	public class ScaleStateList : List<ScaleState>, ICloneable
+    /// <summary>
+    /// A collection class that maintains a list of <see cref="ScaleState" />
+    /// objects, corresponding to the list of <see cref="Axis" /> objects
+    /// from <see cref="GraphPane.YAxisList" /> or <see cref="GraphPane.Y2AxisList" />.
+    /// </summary>
+    public class ScaleStateList : List<ScaleState>, ICloneable
 	{
 		/// <summary>
 		/// Construct a new <see cref="ScaleStateList" /> automatically from an

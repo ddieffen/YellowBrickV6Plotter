@@ -18,25 +18,23 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IComparer = System.Collections.IComparer;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The basic <see cref="PointPair" /> class holds three data values (X, Y, Z).  This
-	/// class extends the basic PointPair to contain five data values (X, Y, Z, Open, Close).
-	/// </summary>
-	/// <remarks>
-	/// The values are remapped to <see cref="Date" />, <see cref="High" />,
-	/// <see cref="Low" />, <see cref="Open" />, and <see cref="Close" />.
-	/// </remarks>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.4 $ $Date: 2007-02-07 07:46:46 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The basic <see cref="PointPair" /> class holds three data values (X, Y, Z).  This
+    /// class extends the basic PointPair to contain five data values (X, Y, Z, Open, Close).
+    /// </summary>
+    /// <remarks>
+    /// The values are remapped to <see cref="Date" />, <see cref="High" />,
+    /// <see cref="Low" />, <see cref="Open" />, and <see cref="Close" />.
+    /// </remarks>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.4 $ $Date: 2007-02-07 07:46:46 $ </version>
+    [Serializable]
 	public class StockPt : PointPair, ISerializable
 	{
 

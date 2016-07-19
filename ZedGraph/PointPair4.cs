@@ -18,21 +18,19 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IComparer = System.Collections.IComparer;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The basic <see cref="PointPair" /> class holds three data values (X, Y, Z).  This
-	/// class extends the basic PointPair to contain four data values (X, Y, Z, T).
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.3 $ $Date: 2007-03-17 18:43:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The basic <see cref="PointPair" /> class holds three data values (X, Y, Z).  This
+    /// class extends the basic PointPair to contain four data values (X, Y, Z, T).
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.3 $ $Date: 2007-03-17 18:43:44 $ </version>
+    [Serializable]
 	public class PointPair4 : PointPair, ISerializable
 	{
 

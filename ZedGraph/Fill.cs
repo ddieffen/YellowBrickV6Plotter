@@ -20,21 +20,20 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that encapsulates color-fill properties for an object.  The <see cref="Fill"/> class
-	/// is used in <see cref="PaneBase.Rect"/>, <see cref="Chart.Rect"/>, <see cref="Legend"/>,
-	/// <see cref="Bar"/>, and <see cref="Line"/> objects.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.22 $ $Date: 2007-01-26 09:01:49 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that encapsulates color-fill properties for an object.  The <see cref="Fill"/> class
+    /// is used in <see cref="PaneBase.Rect"/>, <see cref="Chart.Rect"/>, <see cref="Legend"/>,
+    /// <see cref="Bar"/>, and <see cref="Line"/> objects.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.22 $ $Date: 2007-01-26 09:01:49 $ </version>
+    [Serializable]
 	public class Fill : ISerializable, ICloneable
 	{
 	#region Fields

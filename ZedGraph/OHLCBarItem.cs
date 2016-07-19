@@ -21,8 +21,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,29 +28,29 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates a CandleStick curve type that displays a vertical (or horizontal)
-	/// line displaying the range of data values at each sample point, plus an starting
-	/// mark and an ending mark signifying the opening and closing value for the sample.
-	/// </summary>
-	/// <remarks>For this type to work properly, your <see cref="IPointList" /> must contain
-	/// <see cref="StockPt" /> objects, rather than ordinary <see cref="PointPair" /> types.
-	/// This is because the <see cref="OHLCBarItem"/> type actually displays 5 data values
-	/// but the <see cref="PointPair" /> only stores 3 data values.  The <see cref="StockPt" />
-	/// stores <see cref="StockPt.Date" />, <see cref="StockPt.Close" />,
-	/// <see cref="StockPt.Open" />, <see cref="StockPt.High" />, and
-	/// <see cref="StockPt.Low" /> members.
-	/// For a vertical CandleStick chart, the opening value is drawn as a horizontal line
-	/// segment to the left of the vertical range bar, and the closing value is a horizontal
-	/// line segment to the right.  The total length of these two line segments is controlled
-	/// by the <see cref="ZedGraph.OHLCBar.Size" /> property, which is specified in
-	/// points (1/72nd inch), and scaled according to <see cref="PaneBase.CalcScaleFactor" />.
-	/// The candlesticks are drawn horizontally or vertically depending on the
-	/// value of <see cref="BarSettings.Base"/>, which is a
-	/// <see cref="ZedGraph.BarBase"/> enum type.</remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.4 $ $Date: 2007-12-31 00:23:05 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates a CandleStick curve type that displays a vertical (or horizontal)
+    /// line displaying the range of data values at each sample point, plus an starting
+    /// mark and an ending mark signifying the opening and closing value for the sample.
+    /// </summary>
+    /// <remarks>For this type to work properly, your <see cref="IPointList" /> must contain
+    /// <see cref="StockPt" /> objects, rather than ordinary <see cref="PointPair" /> types.
+    /// This is because the <see cref="OHLCBarItem"/> type actually displays 5 data values
+    /// but the <see cref="PointPair" /> only stores 3 data values.  The <see cref="StockPt" />
+    /// stores <see cref="StockPt.Date" />, <see cref="StockPt.Close" />,
+    /// <see cref="StockPt.Open" />, <see cref="StockPt.High" />, and
+    /// <see cref="StockPt.Low" /> members.
+    /// For a vertical CandleStick chart, the opening value is drawn as a horizontal line
+    /// segment to the left of the vertical range bar, and the closing value is a horizontal
+    /// line segment to the right.  The total length of these two line segments is controlled
+    /// by the <see cref="ZedGraph.OHLCBar.Size" /> property, which is specified in
+    /// points (1/72nd inch), and scaled according to <see cref="PaneBase.CalcScaleFactor" />.
+    /// The candlesticks are drawn horizontally or vertically depending on the
+    /// value of <see cref="BarSettings.Base"/>, which is a
+    /// <see cref="ZedGraph.BarBase"/> enum type.</remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.4 $ $Date: 2007-12-31 00:23:05 $ </version>
+    [Serializable]
 	public class OHLCBarItem : CurveItem, ICloneable, ISerializable
 	{
 	#region Fields

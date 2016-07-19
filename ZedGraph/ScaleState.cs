@@ -20,25 +20,24 @@
 #region Using directives
 
 using System;
-using System.Text;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that captures an <see cref="Axis"/> scale range.
-	/// </summary>
-	/// <remarks>This structure is used by the <see cref="ZoomState"/> class to store
-	/// <see cref="Axis"/> scale range settings in a collection for later retrieval.
-	/// The class stores the <see cref="Scale.Min"/>, <see cref="Scale.Max"/>,
-	/// <see cref="Scale.MinorStep"/>, and <see cref="Scale.MajorStep"/> properties, along with
-	/// the corresponding auto-scale settings: <see cref="Scale.MinAuto"/>,
-	/// <see cref="Scale.MaxAuto"/>, <see cref="Scale.MinorStepAuto"/>,
-	/// and <see cref="Scale.MajorStepAuto"/>.</remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.2 $ $Date: 2007-02-19 08:05:24 $ </version>
-	public class ScaleState : ICloneable
+    /// <summary>
+    /// A class that captures an <see cref="Axis"/> scale range.
+    /// </summary>
+    /// <remarks>This structure is used by the <see cref="ZoomState"/> class to store
+    /// <see cref="Axis"/> scale range settings in a collection for later retrieval.
+    /// The class stores the <see cref="Scale.Min"/>, <see cref="Scale.Max"/>,
+    /// <see cref="Scale.MinorStep"/>, and <see cref="Scale.MajorStep"/> properties, along with
+    /// the corresponding auto-scale settings: <see cref="Scale.MinAuto"/>,
+    /// <see cref="Scale.MaxAuto"/>, <see cref="Scale.MinorStepAuto"/>,
+    /// and <see cref="Scale.MajorStepAuto"/>.</remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.2 $ $Date: 2007-02-19 08:05:24 $ </version>
+    public class ScaleState : ICloneable
 	{
 		/// <summary>
 		/// The axis range data for <see cref="Scale.Min"/>, <see cref="Scale.Max"/>,

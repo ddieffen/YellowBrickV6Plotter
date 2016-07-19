@@ -19,20 +19,19 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates a curve type that is displayed as a line and/or a set of
-	/// symbols at each point.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.22 $ $Date: 2007-08-10 16:22:54 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates a curve type that is displayed as a line and/or a set of
+    /// symbols at each point.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.22 $ $Date: 2007-08-10 16:22:54 $ </version>
+    [Serializable]
 	public class LineItem : CurveItem, ICloneable, ISerializable
 	{
 	#region Fields

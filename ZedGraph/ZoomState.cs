@@ -20,25 +20,24 @@
 #region Using directives
 
 using System;
-using System.Text;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that captures all the scale range settings for a <see cref="GraphPane"/>.
-	/// </summary>
-	/// <remarks>
-	/// This class is used to store scale ranges in order to allow zooming out to
-	/// prior scale range states.  <see cref="ZoomState"/> objects are maintained in the
-	/// <see cref="ZoomStateStack"/> collection.  The <see cref="ZoomState"/> object holds
-	/// a <see cref="ScaleState"/> object for each of the three axes; the <see cref="XAxis"/>,
-	/// the <see cref="YAxis"/>, and the <see cref="Y2Axis"/>.
-	/// </remarks>
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.15 $ $Date: 2007-04-16 00:03:07 $ </version>
-	public class ZoomState : ICloneable
+    /// <summary>
+    /// A class that captures all the scale range settings for a <see cref="GraphPane"/>.
+    /// </summary>
+    /// <remarks>
+    /// This class is used to store scale ranges in order to allow zooming out to
+    /// prior scale range states.  <see cref="ZoomState"/> objects are maintained in the
+    /// <see cref="ZoomStateStack"/> collection.  The <see cref="ZoomState"/> object holds
+    /// a <see cref="ScaleState"/> object for each of the three axes; the <see cref="XAxis"/>,
+    /// the <see cref="YAxis"/>, and the <see cref="Y2Axis"/>.
+    /// </remarks>
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.15 $ $Date: 2007-04-16 00:03:07 $ </version>
+    public class ZoomState : ICloneable
 	{
 		/// <summary>
 		/// An enumeration that describes whether a given state is the result of a Pan or Zoom

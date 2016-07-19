@@ -17,58 +17,48 @@
 //Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //=============================================================================
 
-using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
 using System.Drawing.Printing;
-using System.Data;
-using System.Globalization;
-using System.IO;
 using System.Resources;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace ZedGraph
 {
-/*
-	/// <summary>
-	/// 
-	/// </summary>
-	public struct DrawingThreadData
-	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public Graphics _g;
-		/// <summary>
-		/// 
-		/// </summary>
-		public MasterPane _masterPane;
+    /*
+        /// <summary>
+        /// 
+        /// </summary>
+        public struct DrawingThreadData
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public Graphics _g;
+            /// <summary>
+            /// 
+            /// </summary>
+            public MasterPane _masterPane;
 
-//		public DrawingThread( Graphics g, MasterPane masterPane )
-//		{
-//			_g = g;
-//			_masterPane = masterPane;
-//		}
-	}
-*/
+    //		public DrawingThread( Graphics g, MasterPane masterPane )
+    //		{
+    //			_g = g;
+    //			_masterPane = masterPane;
+    //		}
+        }
+    */
 
-	/// <summary>
-	/// The ZedGraphControl class provides a UserControl interface to the
-	/// <see cref="ZedGraph"/> class library.  This allows ZedGraph to be installed
-	/// as a control in the Visual Studio toolbox.  You can use the control by simply
-	/// dragging it onto a form in the Visual Studio form editor.  All graph
-	/// attributes are accessible via the <see cref="ZedGraphControl.GraphPane"/>
-	/// property.
-	/// </summary>
-	/// <author> John Champion revised by Jerry Vos </author>
-	/// <version> $Revision: 3.86 $ $Date: 2007-11-03 04:41:29 $ </version>
-	public partial class ZedGraphControl : UserControl
+    /// <summary>
+    /// The ZedGraphControl class provides a UserControl interface to the
+    /// <see cref="ZedGraph"/> class library.  This allows ZedGraph to be installed
+    /// as a control in the Visual Studio toolbox.  You can use the control by simply
+    /// dragging it onto a form in the Visual Studio form editor.  All graph
+    /// attributes are accessible via the <see cref="ZedGraphControl.GraphPane"/>
+    /// property.
+    /// </summary>
+    /// <author> John Champion revised by Jerry Vos </author>
+    /// <version> $Revision: 3.86 $ $Date: 2007-11-03 04:41:29 $ </version>
+    public partial class ZedGraphControl : UserControl
 	{
 
 	#region Private Fields

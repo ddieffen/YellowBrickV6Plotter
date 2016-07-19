@@ -17,15 +17,14 @@
 //Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //=============================================================================
 
-using System;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A simple struct to store minimum and maximum <see cref="double" /> type
-	/// values for the scroll range
-	/// </summary>
-	public struct ScrollRange
+    /// <summary>
+    /// A simple struct to store minimum and maximum <see cref="double" /> type
+    /// values for the scroll range
+    /// </summary>
+    public struct ScrollRange
 	{
 		private bool _isScrollable;
 		private double _min;

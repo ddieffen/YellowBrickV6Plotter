@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
-using System.Text;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// enumeration used to indicate which type of data will be plotted.
-	/// </summary>
-	public enum SampleType
+    /// <summary>
+    /// enumeration used to indicate which type of data will be plotted.
+    /// </summary>
+    public enum SampleType
 	{
 		/// <summary>
 		/// Designates the "Time" property will be used

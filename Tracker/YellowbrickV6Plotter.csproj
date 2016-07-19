@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tracker</RootNamespace>
     <AssemblyName>Tracker</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -47,6 +47,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -56,6 +57,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>A9842B2B90F3CDB0A73E5BEB25A82AD8B559B616</ManifestCertificateThumbprint>
@@ -86,6 +88,12 @@
     <Compile Include="Data\Holder.cs" />
     <Compile Include="Data\RaceExtensions.cs" />
     <Compile Include="Data\TeamExtensions.cs" />
+    <Compile Include="Gui\Controls\Scatter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Controls\Scatter.Designer.cs">
+      <DependentUpon>Scatter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +157,9 @@
     <EmbeddedResource Include="Gui\Controls\EmailPasting.resx">
       <DependentUpon>EmailPasting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Controls\Scatter.resx">
+      <DependentUpon>Scatter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,9 +214,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\YellowBrickV6\YellowbrickV6\YellowbrickV6\YellowbrickV6.csproj">
-      <Project>{651E9F05-1674-427D-852A-5C14EDFEA438}</Project>
-      <Name>YellowbrickV6</Name>
+    <ProjectReference Include="..\..\GribMailListener\GribMailListener\YellowbrickV8\YellowbrickV8.csproj">
+      <Project>{360ff0eb-6694-49b2-b82b-e58329c57012}</Project>
+      <Name>YellowbrickV8</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZedGraph.csproj">
       <Project>{2541686B-1673-43BF-AF89-3163945DB009}</Project>

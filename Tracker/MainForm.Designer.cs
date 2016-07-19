@@ -49,13 +49,17 @@
             this.analytics1 = new Tracker.Gui.Controls.Analytics();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.emailPasting1 = new Tracker.Gui.Controls.EmailPasting();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.TimeAutoSaves = new System.Windows.Forms.Timer(this.components);
+            this.timer100ms = new System.Windows.Forms.Timer(this.components);
+            this.scatter1 = new Tracker.Gui.Controls.Scatter();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -63,16 +67,16 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 593);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 809);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(918, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(914, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(837, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(833, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Status";
             // 
@@ -90,7 +94,7 @@
             this.yellowbrickToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(918, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(914, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,7 +143,7 @@
             this.getAllPositionsToolStripMenuItem,
             this.getLatestPositionsToolStripMenuItem});
             this.yellowbrickToolStripMenuItem.Name = "yellowbrickToolStripMenuItem";
-            this.yellowbrickToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.yellowbrickToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.yellowbrickToolStripMenuItem.Text = "Yellowbrick";
             // 
             // updateRaceInfoToolStripMenuItem
@@ -168,11 +172,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 569);
+            this.tabControl1.Size = new System.Drawing.Size(914, 785);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -181,7 +186,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(910, 543);
+            this.tabPage1.Size = new System.Drawing.Size(906, 759);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Chart and Positions";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -191,7 +196,7 @@
             this.chartPositions1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartPositions1.Location = new System.Drawing.Point(3, 3);
             this.chartPositions1.Name = "chartPositions1";
-            this.chartPositions1.Size = new System.Drawing.Size(904, 537);
+            this.chartPositions1.Size = new System.Drawing.Size(900, 753);
             this.chartPositions1.TabIndex = 0;
             // 
             // tabPage2
@@ -200,7 +205,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(910, 543);
+            this.tabPage2.Size = new System.Drawing.Size(906, 759);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Results / Distances";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -210,7 +215,7 @@
             this.analytics1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.analytics1.Location = new System.Drawing.Point(3, 3);
             this.analytics1.Name = "analytics1";
-            this.analytics1.Size = new System.Drawing.Size(904, 537);
+            this.analytics1.Size = new System.Drawing.Size(900, 753);
             this.analytics1.TabIndex = 0;
             // 
             // tabPage3
@@ -219,7 +224,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(910, 543);
+            this.tabPage3.Size = new System.Drawing.Size(906, 759);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Email Pasting";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -229,8 +234,19 @@
             this.emailPasting1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailPasting1.Location = new System.Drawing.Point(3, 3);
             this.emailPasting1.Name = "emailPasting1";
-            this.emailPasting1.Size = new System.Drawing.Size(904, 537);
+            this.emailPasting1.Size = new System.Drawing.Size(900, 753);
             this.emailPasting1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.scatter1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(906, 759);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Scatter";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // TimeAutoSaves
             // 
@@ -238,11 +254,23 @@
             this.TimeAutoSaves.Interval = 300000;
             this.TimeAutoSaves.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer100ms
+            // 
+            this.timer100ms.Enabled = true;
+            // 
+            // scatter1
+            // 
+            this.scatter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scatter1.Location = new System.Drawing.Point(3, 3);
+            this.scatter1.Name = "scatter1";
+            this.scatter1.Size = new System.Drawing.Size(900, 753);
+            this.scatter1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 615);
+            this.ClientSize = new System.Drawing.Size(914, 831);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -259,6 +287,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,6 +316,9 @@
         private System.Windows.Forms.ToolStripMenuItem updateRaceInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getAllPositionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getLatestPositionsToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Timer timer100ms;
+        private Gui.Controls.Scatter scatter1;
     }
 }
 

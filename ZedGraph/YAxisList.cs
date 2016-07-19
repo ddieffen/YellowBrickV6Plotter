@@ -21,21 +21,18 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 #endregion
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class containing a list of <see cref="YAxis"/> objects.
-	/// </summary>
-	/// 
-	/// <author>John Champion</author>
-	/// <version> $Revision: 3.3 $ $Date: 2006-06-24 20:26:43 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection class containing a list of <see cref="YAxis"/> objects.
+    /// </summary>
+    /// 
+    /// <author>John Champion</author>
+    /// <version> $Revision: 3.3 $ $Date: 2006-06-24 20:26:43 $ </version>
+    [Serializable]
 	public class YAxisList : List<YAxis>, ICloneable
 	{
 

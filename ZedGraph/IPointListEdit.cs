@@ -16,32 +16,30 @@
 //License along with this library; if not, write to the Free Software
 //Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //=============================================================================
-using System;
-using System.Text;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// An interface to a collection class containing data
-	/// that define the set of points to be displayed on the curve.
-	/// </summary>
-	/// <remarks>
-	/// This interface is designed to allow customized data abstraction.  The default data
-	/// collection class is <see cref="PointPairList" />, however, you can define your own
-	/// data collection class using the <see cref="IPointList" /> interface.  This
-	/// <see cref="IPointListEdit" /> interface adds the ability to remove and add points
-	/// to the list, and so is used by the <see cref="CurveItem" /> class for the
-	/// <see cref="CurveItem.AddPoint(double,double)" />, <see cref="CurveItem.RemovePoint" />, and
-	/// <see cref="CurveItem.Clear" /> methods.
-	/// </remarks>
-	/// <seealso cref="PointPairList" />
-	/// <seealso cref="BasicArrayPointList" />
-	/// <seealso cref="IPointList" />
-	/// <seealso cref="FilteredPointList" />
-	/// 
-	/// <author> John Champion</author>
-	/// <version> $Revision: 3.6 $ $Date: 2006-10-19 04:40:14 $ </version>
-	public interface IPointListEdit : IPointList
+    /// <summary>
+    /// An interface to a collection class containing data
+    /// that define the set of points to be displayed on the curve.
+    /// </summary>
+    /// <remarks>
+    /// This interface is designed to allow customized data abstraction.  The default data
+    /// collection class is <see cref="PointPairList" />, however, you can define your own
+    /// data collection class using the <see cref="IPointList" /> interface.  This
+    /// <see cref="IPointListEdit" /> interface adds the ability to remove and add points
+    /// to the list, and so is used by the <see cref="CurveItem" /> class for the
+    /// <see cref="CurveItem.AddPoint(double,double)" />, <see cref="CurveItem.RemovePoint" />, and
+    /// <see cref="CurveItem.Clear" /> methods.
+    /// </remarks>
+    /// <seealso cref="PointPairList" />
+    /// <seealso cref="BasicArrayPointList" />
+    /// <seealso cref="IPointList" />
+    /// <seealso cref="FilteredPointList" />
+    /// 
+    /// <author> John Champion</author>
+    /// <version> $Revision: 3.6 $ $Date: 2006-10-19 04:40:14 $ </version>
+    public interface IPointListEdit : IPointList
 	{
 		/// <summary>
 		/// Indexer to access a data point by its ordinal position in the collection.

@@ -17,18 +17,17 @@
 //Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //=============================================================================
 
-using System;
-using Color		 = System.Drawing.Color;
+using Color = System.Drawing.Color;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Class used to get the next color/symbol for GraphPane.AddCurve methods.
-	/// </summary>
-	/// 
-	/// <author> Jerry Vos modified by John Champion </author>
-	/// <version> $Revision: 3.4 $ $Date: 2006-06-24 20:26:43 $ </version>
-	public class ColorSymbolRotator
+    /// <summary>
+    /// Class used to get the next color/symbol for GraphPane.AddCurve methods.
+    /// </summary>
+    /// 
+    /// <author> Jerry Vos modified by John Champion </author>
+    /// <version> $Revision: 3.4 $ $Date: 2006-06-24 20:26:43 $ </version>
+    public class ColorSymbolRotator
 	{
 	#region Static fields
 		/// <summary>

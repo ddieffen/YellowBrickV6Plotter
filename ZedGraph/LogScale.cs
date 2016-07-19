@@ -18,27 +18,25 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The LogScale class inherits from the <see cref="Scale" /> class, and implements
-	/// the features specific to <see cref="AxisType.Log" />.
-	/// </summary>
-	/// <remarks>
-	/// LogScale is a non-linear axis in which the values are scaled using the base 10
-	/// <see cref="Math.Log(double)" />
-	/// function.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.12 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The LogScale class inherits from the <see cref="Scale" /> class, and implements
+    /// the features specific to <see cref="AxisType.Log" />.
+    /// </summary>
+    /// <remarks>
+    /// LogScale is a non-linear axis in which the values are scaled using the base 10
+    /// <see cref="Math.Log(double)" />
+    /// function.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.12 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	class LogScale : Scale, ISerializable //, ICloneable
 	{
 

@@ -21,8 +21,6 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -30,13 +28,13 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// This class handles the drawing of the curve <see cref="JapaneseCandleStick"/> objects.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.10 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// This class handles the drawing of the curve <see cref="JapaneseCandleStick"/> objects.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.10 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	public class JapaneseCandleStick : OHLCBar, ICloneable, ISerializable
 	{
 	#region Fields

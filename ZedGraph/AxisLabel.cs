@@ -19,22 +19,21 @@
 
 using System;
 using System.Drawing;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Class that handles the data associated with text title and its associated font
-	/// properties.  Inherits from <see cref="Label" />, and adds <see cref="IsOmitMag" />
-	/// and <see cref="IsTitleAtCross" /> properties, which are specifically associated with
-	/// the <see cref="Axis" /> <see cref="Axis.Title" />.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Class that handles the data associated with text title and its associated font
+    /// properties.  Inherits from <see cref="Label" />, and adds <see cref="IsOmitMag" />
+    /// and <see cref="IsTitleAtCross" /> properties, which are specifically associated with
+    /// the <see cref="Axis" /> <see cref="Axis.Title" />.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
+    [Serializable]
 	public class AxisLabel : GapLabel, ICloneable, ISerializable
 	{
 		internal bool	_isOmitMag,

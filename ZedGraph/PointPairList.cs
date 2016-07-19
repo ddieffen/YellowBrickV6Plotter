@@ -18,22 +18,21 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class containing a list of <see cref="PointPair"/> objects
-	/// that define the set of points to be displayed on the curve.
-	/// </summary>
-	/// <seealso cref="BasicArrayPointList" />
-	/// <seealso cref="IPointList" />
-	/// 
-	/// <author> Jerry Vos based on code by John Champion
-	/// modified by John Champion</author>
-	/// <version> $Revision: 3.37 $ $Date: 2007-06-29 15:39:07 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection class containing a list of <see cref="PointPair"/> objects
+    /// that define the set of points to be displayed on the curve.
+    /// </summary>
+    /// <seealso cref="BasicArrayPointList" />
+    /// <seealso cref="IPointList" />
+    /// 
+    /// <author> Jerry Vos based on code by John Champion
+    /// modified by John Champion</author>
+    /// <version> $Revision: 3.37 $ $Date: 2007-06-29 15:39:07 $ </version>
+    [Serializable]
 	public class PointPairList : List<PointPair>, IPointList, IPointListEdit
 	{
 	#region Fields

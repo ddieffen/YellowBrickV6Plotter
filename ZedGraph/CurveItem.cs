@@ -19,7 +19,6 @@
 
 using System;
 using System.Drawing;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -29,17 +28,17 @@ using System.Collections.Generic;
 
 namespace ZedGraph
 {
-	
-	/// <summary>
-	/// This class contains the data and methods for an individual curve within
-	/// a graph pane.  It carries the settings for the curve including the
-	/// key and item names, colors, symbols and sizes, linetypes, etc.
-	/// </summary>
-	/// 
-	/// <author> John Champion
-	/// modified by Jerry Vos </author>
-	/// <version> $Revision: 3.43 $ $Date: 2007-11-03 04:41:28 $ </version>
-	[Serializable]
+
+    /// <summary>
+    /// This class contains the data and methods for an individual curve within
+    /// a graph pane.  It carries the settings for the curve including the
+    /// key and item names, colors, symbols and sizes, linetypes, etc.
+    /// </summary>
+    /// 
+    /// <author> John Champion
+    /// modified by Jerry Vos </author>
+    /// <version> $Revision: 3.43 $ $Date: 2007-11-03 04:41:28 $ </version>
+    [Serializable]
 	abstract public class CurveItem : ISerializable, ICloneable
 	{
 	

@@ -18,29 +18,26 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// The Scale class is an abstract base class that encompasses the properties
-	/// and methods associated with a scale of data.
-	/// </summary>
-	/// <remarks>This class is inherited by the
-	/// <see cref="LinearScale"/>, <see cref="LogScale"/>, <see cref="OrdinalScale"/>,
-	/// <see cref="TextScale"/>, <see cref="DateScale"/>, <see cref="ExponentScale"/>,
-	/// <see cref="DateAsOrdinalScale"/>, and <see cref="LinearAsOrdinalScale"/>
-	/// classes to define specific characteristics for those types.
-	/// </remarks>
-	/// 
-	/// <author> John Champion  </author>
-	/// <version> $Revision: 1.33 $ $Date: 2007-09-19 06:41:56 $ </version>
-	[Serializable]
+    /// <summary>
+    /// The Scale class is an abstract base class that encompasses the properties
+    /// and methods associated with a scale of data.
+    /// </summary>
+    /// <remarks>This class is inherited by the
+    /// <see cref="LinearScale"/>, <see cref="LogScale"/>, <see cref="OrdinalScale"/>,
+    /// <see cref="TextScale"/>, <see cref="DateScale"/>, <see cref="ExponentScale"/>,
+    /// <see cref="DateAsOrdinalScale"/>, and <see cref="LinearAsOrdinalScale"/>
+    /// classes to define specific characteristics for those types.
+    /// </remarks>
+    /// 
+    /// <author> John Champion  </author>
+    /// <version> $Revision: 1.33 $ $Date: 2007-09-19 06:41:56 $ </version>
+    [Serializable]
 	abstract public class Scale : ISerializable
 	{
 	#region Fields

@@ -19,22 +19,20 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// An abstract base class that represents a text object on the graph.  A list of
-	/// <see cref="GraphObj"/> objects is maintained by the
-	/// <see cref="GraphObjList"/> collection class.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
-	[Serializable]
+    /// <summary>
+    /// An abstract base class that represents a text object on the graph.  A list of
+    /// <see cref="GraphObj"/> objects is maintained by the
+    /// <see cref="GraphObjList"/> collection class.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.1 $ $Date: 2006-06-24 20:26:44 $ </version>
+    [Serializable]
 	abstract public class GraphObj : ISerializable, ICloneable
 	{
 	#region Fields

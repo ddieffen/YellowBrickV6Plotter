@@ -20,24 +20,23 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that represents a line segment object on the graph.  A list of
-	/// GraphObj objects is maintained by the <see cref="GraphObjList"/> collection class.
-	/// </summary>
-	/// <remarks>
-	/// This should not be confused with the <see cref="LineItem" /> class, which represents
-	/// a set of points plotted together as a "curve".  The <see cref="LineObj" /> class is
-	/// a single line segment, drawn as a "decoration" on the chart.</remarks>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.4 $ $Date: 2007-01-25 07:56:09 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that represents a line segment object on the graph.  A list of
+    /// GraphObj objects is maintained by the <see cref="GraphObjList"/> collection class.
+    /// </summary>
+    /// <remarks>
+    /// This should not be confused with the <see cref="LineItem" /> class, which represents
+    /// a set of points plotted together as a "curve".  The <see cref="LineObj" /> class is
+    /// a single line segment, drawn as a "decoration" on the chart.</remarks>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.4 $ $Date: 2007-01-25 07:56:09 $ </version>
+    [Serializable]
 	public class LineObj : GraphObj, ICloneable, ISerializable
 	{
 	#region Fields

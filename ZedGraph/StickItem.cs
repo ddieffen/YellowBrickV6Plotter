@@ -19,29 +19,28 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// Encapsulates a curve type that is displayed as a series of vertical "sticks",
-	/// one at each defined point.
-	/// </summary>
-	/// <remarks>
-	/// The sticks run from the zero value of the Y axis, to the Y point defined in each
-	/// <see cref="PointPair"/> of the <see cref="IPointList" /> (see <see cref="CurveItem.Points"/>).
-	/// The properties of the sticks are defined in the <see cref="Line"/> property.
-	/// Normally, the <see cref="Symbol"/> is not visible.  However, if you manually enable the
-	/// <see cref="Symbol"/> using the <see cref="ZedGraph.Symbol.IsVisible"/> property, the
-	/// symbols will be drawn at the "Z" value from each <see cref="PointPair" /> (see
-	/// <see cref="PointPair.Z" />).
-	/// </remarks>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 1.7 $ $Date: 2007-01-25 07:56:09 $ </version>
-	[Serializable]
+    /// <summary>
+    /// Encapsulates a curve type that is displayed as a series of vertical "sticks",
+    /// one at each defined point.
+    /// </summary>
+    /// <remarks>
+    /// The sticks run from the zero value of the Y axis, to the Y point defined in each
+    /// <see cref="PointPair"/> of the <see cref="IPointList" /> (see <see cref="CurveItem.Points"/>).
+    /// The properties of the sticks are defined in the <see cref="Line"/> property.
+    /// Normally, the <see cref="Symbol"/> is not visible.  However, if you manually enable the
+    /// <see cref="Symbol"/> using the <see cref="ZedGraph.Symbol.IsVisible"/> property, the
+    /// symbols will be drawn at the "Z" value from each <see cref="PointPair" /> (see
+    /// <see cref="PointPair.Z" />).
+    /// </remarks>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 1.7 $ $Date: 2007-01-25 07:56:09 $ </version>
+    [Serializable]
 	public class StickItem : LineItem, ICloneable, ISerializable
 	{
 	#region Fields

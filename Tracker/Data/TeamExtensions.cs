@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using YellowbrickV6.Entities;
+using YellowbrickV8.Entities;
 
 namespace Tracker.Data
 {
@@ -15,7 +13,7 @@ namespace Tracker.Data
             else
             {
                 Moment m = new Moment();
-                m.dtf = Int32.MaxValue;
+                m.dtfMeters = Int32.MaxValue;
                 return m;
             }
         }

@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
@@ -29,13 +28,13 @@ using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A collection class containing a list of <see cref="GraphPane"/> objects.
-	/// </summary>
-	/// 
-	/// <author>John Champion</author>
-	/// <version> $Revision: 3.6 $ $Date: 2006-06-24 20:26:43 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A collection class containing a list of <see cref="GraphPane"/> objects.
+    /// </summary>
+    /// 
+    /// <author>John Champion</author>
+    /// <version> $Revision: 3.6 $ $Date: 2006-06-24 20:26:43 $ </version>
+    [Serializable]
 	public class PaneList : List<GraphPane>, ICloneable
 	{
 

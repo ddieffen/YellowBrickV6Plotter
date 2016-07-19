@@ -20,20 +20,19 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class that represents a graphic arrow or line object on the graph.  A list of
-	/// ArrowObj objects is maintained by the <see cref="GraphObjList"/> collection class.
-	/// </summary>
-	/// 
-	/// <author> John Champion </author>
-	/// <version> $Revision: 3.4 $ $Date: 2007-01-25 07:56:08 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class that represents a graphic arrow or line object on the graph.  A list of
+    /// ArrowObj objects is maintained by the <see cref="GraphObjList"/> collection class.
+    /// </summary>
+    /// 
+    /// <author> John Champion </author>
+    /// <version> $Revision: 3.4 $ $Date: 2007-01-25 07:56:08 $ </version>
+    [Serializable]
 	public class ArrowObj : LineObj, ICloneable, ISerializable
 	{
 		#region Fields

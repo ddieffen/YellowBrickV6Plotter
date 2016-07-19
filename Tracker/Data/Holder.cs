@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using YellowbrickV6.Entities;
+﻿using System.Collections.Generic;
+using YellowbrickV8.Entities;
 
 namespace Tracker.Data
 {

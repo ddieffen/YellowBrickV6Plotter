@@ -18,23 +18,22 @@
 //=============================================================================
 
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 
 namespace ZedGraph
 {
-	/// <summary>
-	/// A class containing a set of data values to be plotted as a RadarPlot.
-	/// This class will effectively convert the data into <see cref="PointPair" /> objects
-	/// by converting the polar coordinates to rectangular coordinates
-	/// </summary>
-	/// <seealso cref="BasicArrayPointList" />
-	/// <seealso cref="IPointList" />
-	/// <seealso cref="IPointListEdit" />
-	/// 
-	/// <author>Jerry Vos and John Champion</author>
-	/// <version> $Revision: 3.5 $ $Date: 2007-04-16 00:03:02 $ </version>
-	[Serializable]
+    /// <summary>
+    /// A class containing a set of data values to be plotted as a RadarPlot.
+    /// This class will effectively convert the data into <see cref="PointPair" /> objects
+    /// by converting the polar coordinates to rectangular coordinates
+    /// </summary>
+    /// <seealso cref="BasicArrayPointList" />
+    /// <seealso cref="IPointList" />
+    /// <seealso cref="IPointListEdit" />
+    /// 
+    /// <author>Jerry Vos and John Champion</author>
+    /// <version> $Revision: 3.5 $ $Date: 2007-04-16 00:03:02 $ </version>
+    [Serializable]
 	public class RadarPointList : List<PointPair>, IPointList, IPointListEdit
 	{
 
