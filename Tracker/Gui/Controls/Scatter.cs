@@ -7,6 +7,7 @@ using Tracker.Data;
 using YellowbrickV8.Entities;
 using YellowbrickV8;
 using System.Drawing.Drawing2D;
+using System.Linq;
 
 namespace Tracker.Gui.Controls
 {
@@ -22,19 +23,44 @@ namespace Tracker.Gui.Controls
         {
             List<int> teams = new List<int>();
             if (this.radioButton1.Checked)
-            {//all boats
+            {
+//all boats
                 teams = CreateTeamList(true);
             }
             else if (this.radioButtonMysectionOnly.Checked)
-            {//my section only
+            {
+//my section only
                 teams = CreateTeamList(false);
             }
 
-            this.UpdateChart(teams);
+            uint min = uint.MaxValue;
+            uint max = uint.MinValue;
+            if (Holder.race != null && Holder.race.teams != null)
+            {
+                foreach (Team team in Holder.race.teams)
+                {
+                    foreach (Moment m in team.moments)
+                    {
+                        max = Math.Max(m.at, max);
+                        min = Math.Min(m.at, min);
+                    }
+                }
+            }
+
+            this.trackBar1.Minimum = (int)min;
+            if (trackBar1.Value == trackBar1.Maximum)
+            {
+                this.trackBar1.Maximum = (int)max;
+                this.trackBar1.Value = this.trackBar1.Maximum;
+            }
+            else
+                this.trackBar1.Maximum = (int)max;
+
+            this.UpdateChart(teams, this.trackBar1.Value);
         }
 
         public List<int> CreateTeamList(bool allBoats)
-        {
+        { 
             List<int> checkedSections = new List<int>();
             if (!allBoats)
             {
@@ -69,7 +95,7 @@ namespace Tracker.Gui.Controls
             return teams;
         }
 
-        public void UpdateChart(List<int> teamsToPlot)
+        public void UpdateChart(List<int> teamsToPlot, int maxTime = 0)
         {
             GraphPane myPane = this.zedGraphControl1.GraphPane;
             myPane.Title.Text = "Boats Normalized Speed";
@@ -78,13 +104,13 @@ namespace Tracker.Gui.Controls
             myPane.Legend.IsVisible = false;
             myPane.CurveList.Clear();
 
-            this.traceBoatPositions(myPane, teamsToPlot);
-            //if (Tracker.Properties.Settings.Default.ShowRumLine)
-            //    this.traceCourse(myPane);
-            //if (Tracker.Properties.Settings.Default.ShowPOIS)
-            //    this.tracePOIS(myPane);
-            //if (Tracker.Properties.Settings.Default.ShowContour)
-            //    this.TraceContours(myPane);
+            this.traceBoatPositions(myPane, teamsToPlot, maxTime);
+            if (Tracker.Properties.Settings.Default.ShowRumLine)
+                this.traceCourse(myPane);
+            if (Tracker.Properties.Settings.Default.ShowPOIS)
+                this.tracePOIS(myPane);
+            if (Tracker.Properties.Settings.Default.ShowContour)
+                this.TraceContours(myPane);
 
             // Fill the background of the chart rect and pane
             myPane.Chart.Fill = new Fill(Color.White, Color.White, 45.0f);
@@ -146,21 +172,33 @@ namespace Tracker.Gui.Controls
             }
         }
 
-        public void traceBoatPositions(GraphPane myPane, List<int> teamsToPlot)
+        public void traceBoatPositions(GraphPane myPane, List<int> teamsToPlot, int timeValue = 0)
         {
             if (Holder.race != null && Holder.race.teams != null)
             {
                 foreach (Team team in Holder.race.teams)
                 {
                     PointPairList ppl = new PointPairList();
-
-                        Moment latestPos = team.LatestMoment();
-                        double relSpeed = latestPos.spdKn / team.maxSpeedKn;
-                        Color col;
-                        if (team.id == Tracker.Properties.Settings.Default.MyTeam)
-                            col = Color.FromArgb(255, 0, 255);
+                    Moment latestPos;
+                    if (timeValue == 0)
+                        latestPos = team.LatestMoment();
+                    else
+                    {
+                        IEnumerable<Moment> beforeMoments = team.moments.Where(item => item.at <= (uint) timeValue);
+                        if (beforeMoments.Count() > 0)
+                        {
+                            beforeMoments = beforeMoments.OrderBy(item => item.at);
+                            latestPos = beforeMoments.Last();
+                        }
                         else
-                            col = ColFromRelativeSpeed(relSpeed);
+                            continue;
+                    }
+                    double relSpeed = latestPos.spdKn / team.maxSpeedKn;
+                    Color col;
+                    if (team.id == Tracker.Properties.Settings.Default.MyTeam)
+                        col = Color.FromArgb(255, 0, 255);
+                    else
+                        col = ColFromRelativeSpeed(relSpeed);
 
                     ppl.Add(latestPos.lon, latestPos.lat,
                         "TEAM: " + team.name + "\r\n" +
@@ -263,6 +301,22 @@ namespace Tracker.Gui.Controls
             br.InterpolationColors = cb;
             br.RotateTransform(0);
             e.Graphics.FillRectangle(br, this.panel1.ClientRectangle);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            List<int> teams = new List<int>();
+            if (this.radioButton1.Checked)
+            {
+                //all boats
+                teams = CreateTeamList(true);
+            }
+            else if (this.radioButtonMysectionOnly.Checked)
+            {
+                //my section only
+                teams = CreateTeamList(false);
+            }
+            this.UpdateChart(teams, trackBar1.Value);
         }
     }
 }
